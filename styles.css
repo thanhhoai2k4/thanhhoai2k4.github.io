@@ -1,0 +1,63 @@
+.flexbox
+{
+    display: inline-block;
+    font-size: 40px;
+    padding: 20px;
+}
+
+.textCenter
+{
+    text-align: center;
+    width: auto;
+}
+
+
+
+/* .colorblue
+{
+    background-color:blue;
+}
+.colorblueviolet
+{
+    background-color:blueviolet;
+} */
+
+
+
+.first_page
+{
+    text-align:  center;
+    margin: 0;
+    padding: 0;
+}
+
+.navurl
+{
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.navurl li{
+    display: inline-block;
+    font-size: 30px;
+    padding: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.icon
+{
+    text-align: right;
+}
+
+header .navurl li:hover
+{
+    background-color: beige;
+}
+
+
+.iconRight
+{
+    position: absolute;
+    right: 30px;
+
+}
