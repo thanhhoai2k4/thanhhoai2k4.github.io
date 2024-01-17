@@ -7,7 +7,7 @@
 {
     text-align: center;
     width: auto;
-    font-size: 40px;
+    font-size: 60px;
     padding: 20px;
 }
 
@@ -72,12 +72,13 @@ header .navurl li:hover
 
 .main 
 {
+    
     display: grid;
     column-gap: 50px;
     grid-template-columns: auto auto auto;
-    background-color: #2196F3;
+    /* background-color: #2196F3; */
     padding: 10px;
-    max-height: 1000px;
+    height: 400px;
 }
 .grid-item 
 {
@@ -90,11 +91,36 @@ header .navurl li:hover
 
 .main .contentRight
 {
-    border: 26x solid rgba(rgb(18, 145, 71), green, blue, 0.7); 
+    /* background-color: aquamarine; */
+    border-style: solid;
+    border-width: 0px 0px 0px 10px;
 }
 
-.item1
+.main .contentLeft
 {
-    grid-column-start: 1;
-    grid-column-end: 3;
+    text-align: justify;
+    margin-left: 40px;
+    margin-top: 40px;
+    border-radius: 2px solid red; 
+
+}
+
+
+.main .contentLeft p
+{
+    width: 80%;
+    margin: auto;
+    font-family:Serif;
+    line-height: 45px;
+    font-size: 30px;
+}
+
+
+
+
+.main .contentRight img
+{
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: rgba(164, 28, 28, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
