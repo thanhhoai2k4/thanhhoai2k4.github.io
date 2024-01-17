@@ -1,14 +1,14 @@
-.flexbox
+/* .flexbox
 {
     display: inline-block;
-    font-size: 40px;
-    padding: 20px;
-}
+} */
 
 .textCenter
 {
     text-align: center;
     width: auto;
+    font-size: 40px;
+    padding: 20px;
 }
 
 
@@ -44,6 +44,11 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.navurl a
+{
+    text-decoration: none;
+}
+
 .icon
 {
     text-align: right;
@@ -60,4 +65,36 @@ header .navurl li:hover
     position: absolute;
     right: 30px;
 
+}
+
+
+
+
+.main 
+{
+    display: grid;
+    column-gap: 50px;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+    max-height: 1000px;
+}
+.grid-item 
+{
+    /* border: 1px solid rgba(0, 0, 0, 0.8); */
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+.main .contentRight
+{
+    border: 26x solid rgba(rgb(18, 145, 71), green, blue, 0.7); 
+}
+
+.item1
+{
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
