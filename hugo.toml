@@ -25,15 +25,6 @@ theme = "digitalgarden"
   name = 'Stack'
   url = '/stack'
   weight = 5
-[[menu.main]]
-  name = 'Links'
-  params.header = true
-  weight = 6
-[[menu.main]]
-  name = 'Polywork'
-  url = 'https://polywork.com'
-  weight = 7
-
 
 
 
