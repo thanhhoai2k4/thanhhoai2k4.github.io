@@ -4,7 +4,7 @@ title: Homepage
 
 # Hello 👋
 
-**Welcome to my Blog about Deep learning!**
+**Welcome to my space!**
 
 <p style="text-align:justify">Hello, I am THANH HOAI, a passionate blogger about Deep Learning and Artificial Intelligence. I have spent many years studying and working in this field, and I want to share my knowledge with the community.</p>
 
