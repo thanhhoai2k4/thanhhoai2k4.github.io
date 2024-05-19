@@ -2,7 +2,7 @@
 title: 1. About Me
 date: 2024-05-10T09:54:52-07:00
 images: 
-- /articles/a3.jpg
+- /images/aboutme.jpg
 ---
 <p style="text-align:justify">
 Hello everyone, my name’s Thanh Hoai. I'm currently studying at the SaiGon Teachnology University.
@@ -20,4 +20,4 @@ thanks you.
 
 
 
-→ [Let’s begin with the introduction](/articles/structure)
+→ [Let’s begin with the Linear Regression](/articles/structure)
