@@ -20,4 +20,4 @@ thanks you.
 
 
 
-→ [Let’s begin with the Linear Regression](/articles/structure)
+→ [Let’s begin with the Linear Regression](/articles/Linear_Regression)
