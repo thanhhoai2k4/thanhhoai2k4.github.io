@@ -42,7 +42,7 @@ A traight line is a representation of the linear regression model.">
 A traight line is a representation of the linear regression model.">
   <meta itemprop="datePublished" content="2024-05-19T06:49:04-07:00">
   <meta itemprop="dateModified" content="2024-05-19T06:49:04-07:00">
-  <meta itemprop="wordCount" content="130">
+  <meta itemprop="wordCount" content="290">
 
   
   <meta itemprop="name" content="2. Linear Regression">
@@ -50,7 +50,7 @@ A traight line is a representation of the linear regression model.">
 A traight line is a representation of the linear regression model.">
   <meta itemprop="datePublished" content="2024-05-19T06:49:04-07:00">
   <meta itemprop="dateModified" content="2024-05-19T06:49:04-07:00">
-  <meta itemprop="wordCount" content="130">
+  <meta itemprop="wordCount" content="290">
 </head><body class="flex relative h-full min-h-screen"><aside
   class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
   <p class="font-bold mb-5 flex items-center gap-2">
@@ -335,6 +335,24 @@ Source: Trái tim người lính (thơ), Nguyễn Sĩ Đại, NXB Thanh niên.
       <!-- this is a code block for using mathematical symbols -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- This part includes the Javascript file -->
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<!-- this part configures it -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
 <p><img src="/images/2linear-regression-Head.png" alt="image info" title="Linear regression"></p>
 <h2 id="tab-of-content">Tab of content</h2>
 <ul>
@@ -354,11 +372,28 @@ the independent variable and a dependent variable to predict the outcome of the 
 <p>A traight line is a representation of the linear regression model.</p>
 <p><strong>Example the about figure:</strong></p>
 <p><img src="/images/2LinearRegression.png" alt="alt text" title="Title"></p>
-<p>Linear regression equation: $$Y = \theta_1 + \theta_2 X$$</p>
-<p>This is a simple linear regression model. it&rsquo;s only has one independent variable and one dependent variable. Looking ad the piture, it is displayed in two-dimensional space.</p>
-<p><a id="Mathematical"></a></p>
+<p><a id="equationone" style="text-decoration:none">Linear regression equation: </a></p>
+<blockquote>
+<p>$$y = \theta_1 + \theta_2X $$</p>
+</blockquote>
+<p>This is a simple linear regression model. it&rsquo;s only has one independent variable and one dependent variable. Looking at the piture, it is displayed in two-dimensional space.</p>
+<blockquote>
+<p>What does it stand for in the above equation?</p>
+</blockquote>
+<ul>
+<li>\(X\) is the independent variable.</li>
+<li>\(y\) is the output ,which is a depentdent.</li>
+<li>\(\theta_1\) is the gradient of the staight line.</li>
+<li>\(\theta_2\) is the intercept of the traight line.</li>
+</ul>
+<p>Our goal is to <strong>find</strong> the <strong>coefficients</strong> such that the line fits the data points as shown in the figure above.
+<a id="Mathematical"></a></p>
 <h3 id="2-mathematical-modeling">2. Mathematical modeling</h3>
-<p>First item content goes here</p>
+<p>Suppose, we want to predict the value of a house knowing that it has \(x_1\) bedrooms, is \(x_2\) km away from the city, and has \(x_3\) floors. If we have a collection of approximately 1000 houses like that, what form will our equation take?</p>
+<p><a href="#equationone" >In the system of equations</a>. I stipulate that \(x = [1, x_1, x_2, x_3]\) (it is called x bar) is a row vector and \(w = [w_0, w_1, w_2, w_3]\) is a column vector. The number 1 at the beginning is added to simplify and facilitate calculations. In that case, equation can be rewritten as:</p>
+<p>$$
+y \approx = y =
+$$</p>
 <p><a id="Methods"></a></p>
 <h3 id="3-methods">3. Methods</h3>
 <p>Second item content goes here</p>
