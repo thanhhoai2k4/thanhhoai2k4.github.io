@@ -71,10 +71,13 @@ Our goal is to **find** the **coefficients** such that the line fits the data po
 
 Suppose, we want to predict the value of a house knowing that it has \\(x_1\\) bedrooms, is \\(x_2\\) km away from the city, and has \\(x_3\\) floors. If we have a collection of approximately 1000 houses like that, what form will our equation take?
 
-[In the system of equations](#equationone). I stipulate that \\(x = [1, x_1, x_2, x_3]\\) (it is called x bar) is a row vector and \\(w = [w_0, w_1, w_2, w_3]\\) is a column vector. The number 1 at the beginning is added to simplify and facilitate calculations. In that case, equation can be rewritten as:
+[In the system of equations](#equationone). I stipulate that \\(\mathbf{x} = [1, x_1, x_2, x_3]\\) (it is called x bar) is a row vector and \\(\mathbf{w} = [w_0, w_1, w_2, w_3]\\) is a column vector. The number 1 at the beginning is added to simplify and facilitate calculations. In that case, equation can be rewritten as:
+
+
+<!-- https://www.baeldung.com/cs/latex-bold-math-symbols -->
 
 $$
-  y \approx = y = 
+  \hat{y} \approx y= \mathbf{x}w
 $$
 
 

@@ -42,7 +42,7 @@ A traight line is a representation of the linear regression model.">
 A traight line is a representation of the linear regression model.">
   <meta itemprop="datePublished" content="2024-05-19T06:49:04-07:00">
   <meta itemprop="dateModified" content="2024-05-19T06:49:04-07:00">
-  <meta itemprop="wordCount" content="290">
+  <meta itemprop="wordCount" content="289">
 
   
   <meta itemprop="name" content="2. Linear Regression">
@@ -50,7 +50,7 @@ A traight line is a representation of the linear regression model.">
 A traight line is a representation of the linear regression model.">
   <meta itemprop="datePublished" content="2024-05-19T06:49:04-07:00">
   <meta itemprop="dateModified" content="2024-05-19T06:49:04-07:00">
-  <meta itemprop="wordCount" content="290">
+  <meta itemprop="wordCount" content="289">
 </head><body class="flex relative h-full min-h-screen"><aside
   class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
   <p class="font-bold mb-5 flex items-center gap-2">
@@ -390,9 +390,10 @@ the independent variable and a dependent variable to predict the outcome of the 
 <a id="Mathematical"></a></p>
 <h3 id="2-mathematical-modeling">2. Mathematical modeling</h3>
 <p>Suppose, we want to predict the value of a house knowing that it has \(x_1\) bedrooms, is \(x_2\) km away from the city, and has \(x_3\) floors. If we have a collection of approximately 1000 houses like that, what form will our equation take?</p>
-<p><a href="#equationone" >In the system of equations</a>. I stipulate that \(x = [1, x_1, x_2, x_3]\) (it is called x bar) is a row vector and \(w = [w_0, w_1, w_2, w_3]\) is a column vector. The number 1 at the beginning is added to simplify and facilitate calculations. In that case, equation can be rewritten as:</p>
+<p><a href="#equationone" >In the system of equations</a>. I stipulate that \(\mathbf{x} = [1, x_1, x_2, x_3]\) (it is called x bar) is a row vector and \(\mathbf{w} = [w_0, w_1, w_2, w_3]\) is a column vector. The number 1 at the beginning is added to simplify and facilitate calculations. In that case, equation can be rewritten as:</p>
+<!-- https://www.baeldung.com/cs/latex-bold-math-symbols -->
 <p>$$
-y \approx = y =
+\hat{y} \approx y= \mathbf{x}w
 $$</p>
 <p><a id="Methods"></a></p>
 <h3 id="3-methods">3. Methods</h3>

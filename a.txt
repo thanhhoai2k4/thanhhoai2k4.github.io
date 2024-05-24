@@ -1,1 +1,3 @@
-https://digital-garden-hugo-theme.vercel.app/articles/newsletter/
+https://digital-garden-hugo-theme.vercel.app/articles/newsletter/  (source)
+
+using bold math: https://www.baeldung.com/cs/latex-bold-math-symbols
