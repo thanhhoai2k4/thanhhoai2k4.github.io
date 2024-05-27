@@ -80,7 +80,6 @@ $$
   \hat{y} \approx y= \mathbf{x}w
 $$
 
-I am than hoai , ifrom viet nam
 
 
 <a id="Methods"></a>
