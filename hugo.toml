@@ -18,13 +18,15 @@ theme = "digitalgarden"
   url = '/articles'
   weight = 3
 [[menu.main]]
-  name = 'Portfolio'
-  url = '/portfolio'
+  name = 'Learning English'
+  url = '/learning_english'
   weight = 4
 [[menu.main]]
   name = 'Stack'
   url = '/stack'
   weight = 5
+
+
 
 
 
