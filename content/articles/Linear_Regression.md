@@ -92,7 +92,7 @@ we will use **Mean Squared Erorr** (MSE) and
 We want the forecast error and the actual value to be minimized. In other words, we aim to make the equation below as small as possible:
 
 $$
-   L(w) = \frac{1}{2} \sum_{n=1}^{n} (y_i - \hat{y_i})^2 = \frac{1}{2} ( \mathbf{y} - \mathbf{x}\mathbf{w} )^2
+   L(w) = \frac{1}{2} \sum_{n=1}^{n} (y_i - \hat{y_i})^2 = \frac{1}{2} ( \mathbf{y} - \mathbf{X}\mathbf{w} )^2
 $$
 
 In the problem, 1/2 is used for easy computation of the derivative later. [ You can refer to it here](https://datascience.stackexchange.com/questions/53171/why-does-putting-a-1-2-in-front-of-the-squared-error-make-the-math-easier). And we need the square of \\(y_i - \hat{y}\\) to make it positive because loss Function can be negative. Another purpose is to create 2 after differentiating to eliminate with  \\( \frac{1}{2} \\).
