@@ -20,4 +20,4 @@ thanks you.
 
 
 
-→ [Let’s begin with the Linear Regression](/articles/Linear_Regression)
+→ [Let’s begin with the Linear Regression](/articles/linear_regression)
