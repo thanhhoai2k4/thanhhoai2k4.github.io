@@ -164,3 +164,10 @@ Gradien descent have variant. You can refer to it here for [more information](ht
 
 
 ### 4. Numerical studies
+
+Suppose that the equation has form \\( y= 3x + 5 \\). 
+
+add Noice:
+
+
+....
