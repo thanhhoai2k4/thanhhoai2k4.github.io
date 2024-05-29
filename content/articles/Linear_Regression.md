@@ -35,6 +35,7 @@ MathJax.Hub.Config({
   - [2. Mathematical modeling](#2-mathematical-modeling)
     - [2.1 Mathematical analysis](#21-mathematical-analysis)
     - [2.2 Loss Function](#22-loss-function)
+    - [2.3multiple linear regression](#23multiple-linear-regression)
   - [3. Methods](#3-methods)
    
 
@@ -91,8 +92,16 @@ $$
    L(w) = \frac{1}{2} \sum_{n=1}^{n} (y_i - \hat{y})^2
 $$
 
-In the problem, 1/2 is used for easy computation of the derivative later. [ You can refer to it here](https://datascience.stackexchange.com/questions/53171/why-does-putting-a-1-2-in-front-of-the-squared-error-make-the-math-easier). And we need the square of \\(y_i - \hat{y}\\) to make it positive because loss Function can be negative. Another purpose is to create 2 after differentiating to eliminate with 2.
+In the problem, 1/2 is used for easy computation of the derivative later. [ You can refer to it here](https://datascience.stackexchange.com/questions/53171/why-does-putting-a-1-2-in-front-of-the-squared-error-make-the-math-easier). And we need the square of \\(y_i - \hat{y}\\) to make it positive because loss Function can be negative. Another purpose is to create 2 after differentiating to eliminate with  \\( \frac{1}{2} \\).
+
+
+#### 2.3multiple linear regression
+
+I stipulate that \\(   \mathbf{X} = [ \mathbf{x_1} , \mathbf{x_2} , \mathbf{x_3} , ..., \mathbf{x_n}] \\) is a matrix where each row represents a data point in the dataset
+
+
 
 <a id="Methods"></a>
 ### 3. Methods
-Second item content goes here
+
+
