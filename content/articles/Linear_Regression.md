@@ -77,7 +77,7 @@ Suppose, we want to predict the value of a house knowing that it has \\(x_1\\) b
 <!-- https://www.baeldung.com/cs/latex-bold-math-symbols -->
 
 $$
-  \hat{y} \approx y= \mathbf{x}w
+  \hat{y} \approx y= \mathbf{x} \mathbf{w}
 $$
 
 

@@ -12,4 +12,4 @@ title: Homepage
 
 <p style="text-align:justify">On my blog, I write about topics related to Deep Learning and Artificial Intelligence, from basics to advanced levels. I provide detailed guides, real-life examples, and source code to help you better understand the concepts and applications of these technologies. I look forward to sharing this exciting journey with you all. Welcome to my blog! </p>
 
-→ [Go to Aricles](/articles)
+→ [Go to Articles](/articles)
