@@ -11,7 +11,7 @@
     2. Linear Regression - Deep learning
   </title>
 
-  <meta name="description" content="Tab of content Tab of content 1. Introduction 2. Mathematical modeling 2.1 Mathematical analysis 2.2 Loss Function 2.3multiple linear regression 3. Methods 3.1 Closed-Form Solution 1. Introduction Linear regression is a Supervised Learning algorithm. It&rsquo;s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&hellip;" /><meta name="generator" content="Hugo 0.125.6">
+  <meta name="description" content="Tab of content Tab of content 1. Introduction 2. Mathematical modeling 2.1 Mathematical analysis 2.2 Loss Function 2.3multiple linear regression 3. Methods 3.1 Closed-Form Solution 3.2 Gradient descent 4. Numerical studies 1. Introduction Linear regression is a Supervised Learning algorithm. It&rsquo;s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&hellip;" /><meta name="generator" content="Hugo 0.125.6">
 
   <link rel="stylesheet" href="http://localhost:1313/css/main.css" />
 
@@ -21,7 +21,7 @@
   <meta property="og:url" content="http://localhost:1313/articles/linear_regression/">
   <meta property="og:site_name" content="Deep learning">
   <meta property="og:title" content="2. Linear Regression">
-  <meta property="og:description" content="Tab of content Tab of content 1. Introduction 2. Mathematical modeling 2.1 Mathematical analysis 2.2 Loss Function 2.3multiple linear regression 3. Methods 3.1 Closed-Form Solution 1. Introduction Linear regression is a Supervised Learning algorithm. It’s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,…">
+  <meta property="og:description" content="Tab of content Tab of content 1. Introduction 2. Mathematical modeling 2.1 Mathematical analysis 2.2 Loss Function 2.3multiple linear regression 3. Methods 3.1 Closed-Form Solution 3.2 Gradient descent 4. Numerical studies 1. Introduction Linear regression is a Supervised Learning algorithm. It’s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,…">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="articles">
@@ -30,22 +30,22 @@
 
 
   <meta name="twitter:card" content="summary"><meta name="twitter:title" content="2. Linear Regression">
-<meta name="twitter:description" content="Tab of content Tab of content 1. Introduction 2. Mathematical modeling 2.1 Mathematical analysis 2.2 Loss Function 2.3multiple linear regression 3. Methods 3.1 Closed-Form Solution 1. Introduction Linear regression is a Supervised Learning algorithm. It&rsquo;s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&hellip;">
+<meta name="twitter:description" content="Tab of content Tab of content 1. Introduction 2. Mathematical modeling 2.1 Mathematical analysis 2.2 Loss Function 2.3multiple linear regression 3. Methods 3.1 Closed-Form Solution 3.2 Gradient descent 4. Numerical studies 1. Introduction Linear regression is a Supervised Learning algorithm. It&rsquo;s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&hellip;">
 
 
   
   <meta itemprop="name" content="2. Linear Regression">
-  <meta itemprop="description" content="Tab of content Tab of content 1. Introduction 2. Mathematical modeling 2.1 Mathematical analysis 2.2 Loss Function 2.3multiple linear regression 3. Methods 3.1 Closed-Form Solution 1. Introduction Linear regression is a Supervised Learning algorithm. It&rsquo;s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&hellip;">
+  <meta itemprop="description" content="Tab of content Tab of content 1. Introduction 2. Mathematical modeling 2.1 Mathematical analysis 2.2 Loss Function 2.3multiple linear regression 3. Methods 3.1 Closed-Form Solution 3.2 Gradient descent 4. Numerical studies 1. Introduction Linear regression is a Supervised Learning algorithm. It&rsquo;s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&hellip;">
   <meta itemprop="datePublished" content="2024-05-19T06:49:04-07:00">
   <meta itemprop="dateModified" content="2024-05-19T06:49:04-07:00">
-  <meta itemprop="wordCount" content="554">
+  <meta itemprop="wordCount" content="616">
 
   
   <meta itemprop="name" content="2. Linear Regression">
-  <meta itemprop="description" content="Tab of content Tab of content 1. Introduction 2. Mathematical modeling 2.1 Mathematical analysis 2.2 Loss Function 2.3multiple linear regression 3. Methods 3.1 Closed-Form Solution 1. Introduction Linear regression is a Supervised Learning algorithm. It&rsquo;s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&hellip;">
+  <meta itemprop="description" content="Tab of content Tab of content 1. Introduction 2. Mathematical modeling 2.1 Mathematical analysis 2.2 Loss Function 2.3multiple linear regression 3. Methods 3.1 Closed-Form Solution 3.2 Gradient descent 4. Numerical studies 1. Introduction Linear regression is a Supervised Learning algorithm. It&rsquo;s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&hellip;">
   <meta itemprop="datePublished" content="2024-05-19T06:49:04-07:00">
   <meta itemprop="dateModified" content="2024-05-19T06:49:04-07:00">
-  <meta itemprop="wordCount" content="554">
+  <meta itemprop="wordCount" content="616">
 </head><body class="flex relative h-full min-h-screen"><aside
   class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
   <p class="font-bold mb-5 flex items-center gap-2">
@@ -292,7 +292,7 @@
         <h3 class="text-lg font-semibold mb-0.5">2. Linear Regression</h3>
         <div
           class="text-sm  text-slate-400  line-clamp-2">
-          Tab of content Tab of content 1. Introduction 2. Mathematical modeling 2.1 Mathematical analysis 2.2 Loss Function 2.3multiple linear regression 3. Methods 3.1 Closed-Form Solution 1. Introduction Linear regression is a Supervised Learning algorithm. It&rsquo;s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&hellip;
+          Tab of content Tab of content 1. Introduction 2. Mathematical modeling 2.1 Mathematical analysis 2.2 Loss Function 2.3multiple linear regression 3. Methods 3.1 Closed-Form Solution 3.2 Gradient descent 4. Numerical studies 1. Introduction Linear regression is a Supervised Learning algorithm. It&rsquo;s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&hellip;
         </div>
       </a>
       
@@ -363,8 +363,10 @@ MathJax.Hub.Config({
 <li><a href="#3-methods" >3. Methods</a>
 <ul>
 <li><a href="#31-closed-form-solution" >3.1 Closed-Form Solution</a></li>
+<li><a href="#32-gradient-descent" >3.2 Gradient descent</a></li>
 </ul>
 </li>
+<li><a href="#4-numerical-studies" >4. Numerical studies</a></li>
 </ul>
 </li>
 </ul>
@@ -424,9 +426,12 @@ $$</p>
 \frac{\nabla L(\mathbf{w})}{\nabla \mathbf{w}} =  \frac{1}{2} (\mathbf{y} - \mathbf{X}\mathbf{w})^2_{\mathbf{w}}
 $$</p>
 <p>$$
-\frac{\nabla L(\mathbf{w})}{\nabla \mathbf{w}} = 0 \implies - \mathbf{X} ( \mathbf{y} - \mathbf{X} \mathbf{w} ) = 0
+\frac{\nabla L(\mathbf{w})}{\nabla \mathbf{w}} = 0
 $$</p>
 <p>$$
+\implies - \mathbf{X} ( \mathbf{y} - \mathbf{X} \mathbf{w} ) = 0
+$$</p>
+<p>$$t
 -\mathbf{X} ( \mathbf{y} - \mathbf{X} \mathbf{w} ) = 0
 $$</p>
 <p>$$
@@ -434,6 +439,14 @@ $$</p>
 $$</p>
 <p>So, \( \mathbf{w} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X} \mathbf{y} \)</p>
 <p>to refer to <a href="/images/Derivative_MSE_LINEAR.png" >Here</a></p>
+<h4 id="32-gradient-descent">3.2 Gradient descent</h4>
+<p>optimizer is used for fine-tunes \( \mathbf{w} \) with equation:</p>
+<p>$$
+\mathbf{w_{t+1}} = \mathbf{w_{t}} - \alpha \nabla_{t} L(\mathbf{w})
+$$</p>
+<p>in the equation, \( \alpha \) is a learning rate. Common, learning rate set it 0.001</p>
+<p>Gradien descent have variant. You can refer to it here for <a href="https://deepchecks.com/glossary/learning-rate-in-machine-learning/#:~:text=The%20learning%20rate%2C%20denoted%20by,network%20concerning%20the%20loss%20gradient%3E."  target="_blank" rel="noopener" >more information</a></p>
+<h3 id="4-numerical-studies">4. Numerical studies</h3>
 
     </article>
   </div>

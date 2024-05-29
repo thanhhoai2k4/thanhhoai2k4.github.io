@@ -38,7 +38,8 @@ MathJax.Hub.Config({
     - [2.3multiple linear regression](#23multiple-linear-regression)
   - [3. Methods](#3-methods)
     - [3.1 Closed-Form Solution](#31-closed-form-solution)
-   
+    - [3.2 Gradient descent](#32-gradient-descent)
+  - [4. Numerical studies](#4-numerical-studies)
 
 <!-- headings -->
 <a id="Introduction"></a>
@@ -126,11 +127,16 @@ $$
 
 
 $$
-  \frac{\nabla L(\mathbf{w})}{\nabla \mathbf{w}} = 0 \implies - \mathbf{X} ( \mathbf{y} - \mathbf{X} \mathbf{w} ) = 0
+  \frac{\nabla L(\mathbf{w})}{\nabla \mathbf{w}} = 0 
 $$
 
 
 $$
+  \implies - \mathbf{X} ( \mathbf{y} - \mathbf{X} \mathbf{w} ) = 0
+$$
+
+
+$$t
    -\mathbf{X} ( \mathbf{y} - \mathbf{X} \mathbf{w} ) = 0
 $$
 
@@ -142,3 +148,19 @@ $$
 So, \\( \mathbf{w} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X} \mathbf{y} \\)
 
 to refer to [Here](/images/Derivative_MSE_LINEAR.png )
+
+
+#### 3.2 Gradient descent
+
+optimizer is used for fine-tunes \\( \mathbf{w} \\) with equation:
+
+$$
+  \mathbf{w_{t+1}} = \mathbf{w_{t}} - \alpha \nabla_{t} L(\mathbf{w})
+$$
+
+in the equation, \\( \alpha \\) is a learning rate. Common, learning rate set it 0.001
+
+Gradien descent have variant. You can refer to it here for [more information](https://deepchecks.com/glossary/learning-rate-in-machine-learning/#:~:text=The%20learning%20rate%2C%20denoted%20by,network%20concerning%20the%20loss%20gradient%3E.)
+
+
+### 4. Numerical studies
