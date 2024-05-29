@@ -37,6 +37,7 @@ MathJax.Hub.Config({
     - [2.2 Loss Function](#22-loss-function)
     - [2.3multiple linear regression](#23multiple-linear-regression)
   - [3. Methods](#3-methods)
+    - [3.1 Closed-Form Solution](#31-closed-form-solution)
    
 
 <!-- headings -->
@@ -88,8 +89,9 @@ $$
 #### 2.2 Loss Function
 we will use **Mean Squared Erorr** (MSE) and
 We want the forecast error and the actual value to be minimized. In other words, we aim to make the equation below as small as possible:
+
 $$
-   L(w) = \frac{1}{2} \sum_{n=1}^{n} (y_i - \hat{y})^2
+   L(w) = \frac{1}{2} \sum_{n=1}^{n} (y_i - \hat{y_i})^2 = \frac{1}{2} ( \mathbf{y} - \mathbf{x}\mathbf{w} )^2
 $$
 
 In the problem, 1/2 is used for easy computation of the derivative later. [ You can refer to it here](https://datascience.stackexchange.com/questions/53171/why-does-putting-a-1-2-in-front-of-the-squared-error-make-the-math-easier). And we need the square of \\(y_i - \hat{y}\\) to make it positive because loss Function can be negative. Another purpose is to create 2 after differentiating to eliminate with  \\( \frac{1}{2} \\).
@@ -97,11 +99,46 @@ In the problem, 1/2 is used for easy computation of the derivative later. [ You 
 
 #### 2.3multiple linear regression
 
-I stipulate that \\(   \mathbf{X} = [ \mathbf{x_1} , \mathbf{x_2} , \mathbf{x_3} , ..., \mathbf{x_n}] \\) is a matrix where each row represents a data point in the dataset
+I stipulate that \\(   \mathbf{X} = [ \mathbf{x_1} , \mathbf{x_2} , \mathbf{x_3} , ..., \mathbf{x_n}] \\) is a matrix where each row represents a data point in the dataset. When we have the cost function in the following form:
+$$
+  L( \mathbf{w}) = \mathbf{X} \mathbf{w}
+$$
 
 
+and Loss Function can be rewritten as:
 
-<a id="Methods"></a>
+$$
+  L(w) = \frac{1}{2} (\mathbf{y} - \mathbf{X}\mathbf{w})^2 
+$$
+
+
+<a id="Methods  "></a>
 ### 3. Methods
 
+#### 3.1 Closed-Form Solution
 
+we use closed from solution. We take the loss function, find its derivative, and set it equal to 0. Solve the equation:
+
+
+$$
+  \frac{\nabla L(\mathbf{w})}{\nabla \mathbf{w}} =  \frac{1}{2} (\mathbf{y} - \mathbf{X}\mathbf{w})^2_{\mathbf{w}}
+$$
+
+
+$$
+  \frac{\nabla L(\mathbf{w})}{\nabla \mathbf{w}} = 0 \implies - \mathbf{X} ( \mathbf{y} - \mathbf{X} \mathbf{w} ) = 0
+$$
+
+
+$$
+   -\mathbf{X} ( \mathbf{y} - \mathbf{X} \mathbf{w} ) = 0
+$$
+
+
+$$
+  \mathbf{w} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X} \mathbf{y}
+$$
+
+So, \\( \mathbf{w} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X} \mathbf{y} \\)
+
+to refer to [Here](/articles/images/Derivative_MSE_LINEAR.png )
