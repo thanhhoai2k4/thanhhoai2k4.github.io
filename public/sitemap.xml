@@ -14,16 +14,19 @@
     <loc>http://localhost:1313/articles/aboutme/</loc>
     <lastmod>2024-05-10T09:54:52-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/learning_english/design1/</loc>
+    <loc>http://localhost:1313/portfolio/design1/</loc>
     <lastmod>2021-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/learning_english/</loc>
+    <loc>http://localhost:1313/portfolio/design4/</loc>
     <lastmod>2021-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/learning_english/design2/</loc>
+    <loc>http://localhost:1313/portfolio/</loc>
+    <lastmod>2021-12-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/portfolio/design2/</loc>
     <lastmod>2021-12-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/learning_english/design3/</loc>
+    <loc>http://localhost:1313/portfolio/design3/</loc>
     <lastmod>2021-12-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
