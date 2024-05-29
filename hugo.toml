@@ -19,7 +19,7 @@ theme = "digitalgarden"
   weight = 3
 [[menu.main]]
   name = 'Learning English'
-  url = '/learning_english'
+  url = '/portfolio'
   weight = 4
 [[menu.main]]
   name = 'Stack'
