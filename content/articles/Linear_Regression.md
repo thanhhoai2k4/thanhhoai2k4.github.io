@@ -141,4 +141,4 @@ $$
 
 So, \\( \mathbf{w} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X} \mathbf{y} \\)
 
-to refer to [Here](/articles/images/Derivative_MSE_LINEAR.png )
+to refer to [Here](/images/Derivative_MSE_LINEAR.png )
