@@ -13,7 +13,7 @@
       <link>http://localhost:1313/articles/linear_regression/</link>
       <pubDate>Sun, 19 May 2024 06:49:04 -0700</pubDate>
       <guid>http://localhost:1313/articles/linear_regression/</guid>
-      <description>Tab of content Tab of content 1. Introduction 2. Mathematical modeling 3. Methods 1. Introduction Linear regression is a Supervised Learning algorithm. It&amp;rsquo;s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&amp;hellip;&#xA;A traight line is a representation of the linear regression model.</description>
+      <description>Tab of content Tab of content 1. Introduction 2. Mathematical modeling 2.1 Mathematical analysis 2.2 Loss Function 3. Methods 1. Introduction Linear regression is a Supervised Learning algorithm. It&amp;rsquo;s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&amp;hellip;</description>
     </item>
     <item>
       <title>1. About Me</title>
