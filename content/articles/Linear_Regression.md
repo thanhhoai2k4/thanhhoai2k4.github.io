@@ -167,7 +167,10 @@ Gradien descent have variant. You can refer to it here for [more information](ht
 
 Suppose that the equation has form \\( y= 3x + 5 \\). 
 
-add Noice:
+Please read the code and perform a test run: [Code in here](https://github.com/thanhhoai2k4/Machine_Learning_Basic/tree/main/section_1)
 
 
-....
+
+![Alt text](https://github.com/thanhhoai2k4/Machine_Learning_Basic/blob/main/section_1/linear_regression.png?raw=true "a title")
+
+
