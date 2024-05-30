@@ -137,7 +137,7 @@ $$
 
 
 $$t
-   -\mathbf{X} ( \mathbf{y} - \mathbf{X} \mathbf{w} ) = 0
+   -\mathbf{X^T} ( \mathbf{y} - \mathbf{X} \mathbf{w} ) = 0
 $$
 
 
