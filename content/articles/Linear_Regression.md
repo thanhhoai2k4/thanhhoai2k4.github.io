@@ -142,10 +142,10 @@ $$
 
 
 $$
-  \mathbf{w} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X} \mathbf{y}
+  \mathbf{w} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X^T} \mathbf{y}
 $$
 
-So, \\( \mathbf{w} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X} \mathbf{y} \\)
+So, \\( \mathbf{w} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X^T} \mathbf{y} \\)
 
 to refer to [Here](/images/Derivative_MSE_LINEAR.png )
 
