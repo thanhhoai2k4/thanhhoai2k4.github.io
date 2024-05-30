@@ -132,7 +132,7 @@ $$
 
 
 $$
-  \implies - \mathbf{X} ( \mathbf{y} - \mathbf{X} \mathbf{w} ) = 0
+  \implies - \mathbf{X^T} ( \mathbf{y} - \mathbf{X} \mathbf{w} ) = 0
 $$
 
 
