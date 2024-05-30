@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Portfolio (demo) on Deep learning</title>
+    <title>PHẢI ĐI DU HỌC on Deep learning</title>
     <link>http://localhost:1313/portfolio/</link>
-    <description>Recent content in Portfolio (demo) on Deep learning</description>
+    <description>Recent content in PHẢI ĐI DU HỌC on Deep learning</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>en-us-vi</language>
     <lastBuildDate>Sat, 18 Dec 2021 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/portfolio/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>The pasts of speeh</title>
-      <link>http://localhost:1313/portfolio/design1/</link>
+      <title>6 thì trong tiếng anh</title>
+      <link>http://localhost:1313/portfolio/sauthitrongtienganh/</link>
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/portfolio/design1/</guid>
-      <description>Croissant orange croissant dolor orange croissant. Lollipop biscuit donut vanilla sweet croissant. Apple donut candy tiramisu cream jelly. Croissant sweet cookie vanilla tiramisu dolor.&#xA;Pastry jelly cookie sugar donut orange. Candy sweet cookie sweet donut marzipan. Vanilla cookie sprinkles pastry orange cookie. Marzipan donut ipsum sugar biscuit vanilla.&#xA;Candy cookie muffin pastry lollipop vanilla. Apple orange tiramisu jelly ipsum sugar. Candy cake orange ipsum orange muffin. Sugar pastry orange cream orange pastry.</description>
+      <guid>http://localhost:1313/portfolio/sauthitrongtienganh/</guid>
+      <description>1. Thì hiện tại đơn (Present Simple Tense) Chúng có phân biện giữa đồng từ tube và động từ thường.</description>
     </item>
   </channel>
 </rss>
