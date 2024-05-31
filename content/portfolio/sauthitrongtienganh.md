@@ -21,3 +21,7 @@ description: 6 thì tiếng anh nên học trước.
 	- Những sự việc, tình huống mang tính cố định, bền vững và kéo dài.
 	- Một lịch trình, thời gian biểu có sẵn.
 	- Tiêu đề báo chí.
+
+
+
+https://modelzoo.co/model/faster-rcnn-tensorflow#google_vignette
