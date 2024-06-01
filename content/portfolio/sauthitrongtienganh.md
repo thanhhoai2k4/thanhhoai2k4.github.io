@@ -1,5 +1,5 @@
 ---
-title: 6 thì trong tiếng anh
+title: 4 thì trong tiếng anh
 date: 2024-05-18
 images:
 - /portfolio/images/tieude_4thihientai.jpg
