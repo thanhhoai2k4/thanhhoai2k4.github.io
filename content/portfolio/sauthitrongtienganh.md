@@ -1,5 +1,5 @@
 ---
-title: 4 thì trong tiếng anh
+title: 2024 thì trong tiếng anh
 date: 2024-05-18
 images:
 - /portfolio/images/tieude_4thihientai.jpg
@@ -155,7 +155,7 @@ MathJax.Hub.Config({
 - Một hành động xảy ra ở quá khư nhưng vẫn còn ở hiện tại.
 	> My friend Nam has lived in HCMC since 1998.
 -  Một hành động xảy ra ở quá khư những không xác định được thời điểm rõ ràng:
-	> Have you had breakfast ?
+	> Have you had breakfast ? </br>
 	> No, i haven't eaten.
 - Trong cấu trúc:
 	- **Be + the first/second... time + S + Have/has + \\( V_{3/ed} \\)**
