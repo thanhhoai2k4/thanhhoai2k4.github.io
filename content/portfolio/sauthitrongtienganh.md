@@ -161,7 +161,7 @@ MathJax.Hub.Config({
 	- **Be + the first/second... time + S + Have/has + \\( V_{3/ed} \\)**
 		- this is the first time i have been
 	- **Be +the so sánh nhất + N + S +have/has + \\( V_{3/ed} \\)**
-		-She is the most honest person i have ever met.
+		- She is the most honest person i have ever met.
 
 
 
