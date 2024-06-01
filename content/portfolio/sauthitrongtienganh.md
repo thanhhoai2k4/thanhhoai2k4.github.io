@@ -173,7 +173,7 @@ MathJax.Hub.Config({
 
 
 <a id="HTHT_CACHTHEMED"></a>
-#### 2.3CÁCH THÊM ED:
+#### 2.3 CÁCH THÊM ED:
 - Hầu hết các động từ thường thêm **ed** vào cuối.
 	> work =) worked </br>
 	> clean =) cleaned 
