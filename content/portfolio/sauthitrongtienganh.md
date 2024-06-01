@@ -69,7 +69,7 @@ MathJax.Hub.Config({
 
 
 - Một thời gian biểu hoặc một lịch trình.
-	 >Vd: the last train leaves at 4:45.
+	 > Vd: The last train leaves at 4:45.
 
 
 <a id="HTD_QUYTACTHEM_S_ES"> </a>
@@ -126,7 +126,7 @@ MathJax.Hub.Config({
 
 
 <a id="HTTD_CACHTHEMING"></a>
-#### 2.3CÁCH THÊM ING:
+#### 2.3 CÁCH THÊM ING:
 - Quy tắc thông thường: Chỉ cần thêm “ing” sau động từ.
 - Quy tắc liên quan đến từ chữ cái cuối cùng:
 	- Khi chữ cái cuối cùng là 1 chữ **e**: bỏ **e** sau đó thêm **ing**.
