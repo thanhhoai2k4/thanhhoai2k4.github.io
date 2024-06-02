@@ -1,5 +1,5 @@
 ---
-title: 2024 thì trong tiếng anh
+title: 4 thì trong tiếng anh
 date: 2024-05-18
 images:
 - /portfolio/images/tieude_4thihientai.jpg
@@ -132,7 +132,7 @@ MathJax.Hub.Config({
 	- Khi chữ cái cuối cùng là 1 chữ **e**: bỏ **e** sau đó thêm **ing**.
 	- Khi chữ cái cuối cùng là  2 chữ **e** - **ee**: chỉ cần thêm **ing**.
 	- Khi chữ cái cuối cùng là **c**: thêm **k** sau đó thêm **ing**.
-	- Khi chữ cái cuối cùng là **i**: đổi **ie** thành **y** sau đó thêm **ing**.
+	- Khi chữ cái cuối cùng là **ie**: đổi **ie** thành **y** sau đó thêm **ing**.
 
 - Quy tắc liên quan đến nguyên âm và phụ âm của những chữ cái cuối cùng:
 	- Khi động từ chỉ có một âm tiết và những chữ cái cuối cùng là **nguyên âm** + **phụ âm**, trừ các phụ âm là **h**,**w**,**x**,**y** : **gấp đôi** phụ âm, sau đó thêm ing.
@@ -218,3 +218,7 @@ MathJax.Hub.Config({
 
 
 [Đọc thêm tài liệu tại đây](https://nativex.edu.vn/tu-hoc/thi-hien-tai-hoan-thanh-tiep-dien-2/)
+
+
+
+→ [4 thì quá khứ](/portfolio/4thiquakhu)
