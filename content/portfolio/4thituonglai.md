@@ -116,3 +116,7 @@ thi-tuong-lai-gan-be-going-to.webp
 #### 3.2 CÁCH DỤNG CHÍNH
 ##### Thì tương lai hoàng thành tiếp diễn dùng để diễn tả:
 - Nhấn mạnh tính liên lục của hành động trong tương lai.
+
+
+
+[Làm bài tâp](https://drive.google.com/file/d/17OH4Wbvu94RaLuAY3lh-bh_rngwWUCaJ/view?usp=sharing)
