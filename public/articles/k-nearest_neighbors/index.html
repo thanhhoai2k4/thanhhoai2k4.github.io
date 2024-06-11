@@ -8,53 +8,44 @@
   <link rel="icon" href="/favicon.ico">
 
   <title>
-    1. About Me - Deep learning
+    3. K-nearest neighbors - Deep learning
   </title>
 
-  <meta name="description" content="Hello everyone, my name’s Thanh Hoai. I&#39;m currently studying at the SaiGon Teachnology University.I’m a sophomore at University of Information Technology. I really like computer science. I&#39;m very happy to behere to day. I want to share my understanding of Artificial Intelligence with everyone to convey:Người vá trời lấp bể Kẻ đắp luỹ xây thành Ta chỉ là chiếc lá Việc của mình là xanh
-Source: Trái tim người lính (thơ), Nguyễn Sĩ Đại, NXB Thanh niên." /><meta name="generator" content="Hugo 0.125.6">
+  <meta name="description" content="Tab of content Tab of content 1. Introduction 1. Introduction the K-Nearest Neighbors (KNN) is a supervised machine learning method employed to tackle classification and regression problems. When traning, it doesn&rsquo;t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called as Lazy Learning. With KNN in classification problems, the label of a new data point is innferred from its K nearest data points." /><meta name="generator" content="Hugo 0.125.6">
 
   <link rel="stylesheet" href="http://localhost:1313/css/main.css" />
 
   
   
 
-  <meta property="og:url" content="http://localhost:1313/articles/aboutme/">
+  <meta property="og:url" content="http://localhost:1313/articles/k-nearest_neighbors/">
   <meta property="og:site_name" content="Deep learning">
-  <meta property="og:title" content="1. About Me">
-  <meta property="og:description" content="Hello everyone, my name’s Thanh Hoai. I&#39;m currently studying at the SaiGon Teachnology University.I’m a sophomore at University of Information Technology. I really like computer science. I&#39;m very happy to behere to day. I want to share my understanding of Artificial Intelligence with everyone to convey:Người vá trời lấp bể Kẻ đắp luỹ xây thành Ta chỉ là chiếc lá Việc của mình là xanh
-Source: Trái tim người lính (thơ), Nguyễn Sĩ Đại, NXB Thanh niên.">
+  <meta property="og:title" content="3. K-nearest neighbors">
+  <meta property="og:description" content="Tab of content Tab of content 1. Introduction 1. Introduction the K-Nearest Neighbors (KNN) is a supervised machine learning method employed to tackle classification and regression problems. When traning, it doesn’t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called as Lazy Learning. With KNN in classification problems, the label of a new data point is innferred from its K nearest data points.">
   <meta property="og:locale" content="en-us-vi">
   <meta property="og:type" content="article">
     <meta property="article:section" content="articles">
-    <meta property="article:published_time" content="2024-05-10T09:54:52-07:00">
-    <meta property="article:modified_time" content="2024-05-10T09:54:52-07:00">
-    <meta property="og:image" content="http://localhost:1313/images/aboutme.jpg">
+    <meta property="article:published_time" content="2024-06-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-06-10T00:00:00+00:00">
 
 
-  <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://localhost:1313/images/aboutme.jpg"><meta name="twitter:title" content="1. About Me">
-<meta name="twitter:description" content="Hello everyone, my name’s Thanh Hoai. I&#39;m currently studying at the SaiGon Teachnology University.I’m a sophomore at University of Information Technology. I really like computer science. I&#39;m very happy to behere to day. I want to share my understanding of Artificial Intelligence with everyone to convey:Người vá trời lấp bể Kẻ đắp luỹ xây thành Ta chỉ là chiếc lá Việc của mình là xanh
-Source: Trái tim người lính (thơ), Nguyễn Sĩ Đại, NXB Thanh niên.">
+  <meta name="twitter:card" content="summary"><meta name="twitter:title" content="3. K-nearest neighbors">
+<meta name="twitter:description" content="Tab of content Tab of content 1. Introduction 1. Introduction the K-Nearest Neighbors (KNN) is a supervised machine learning method employed to tackle classification and regression problems. When traning, it doesn&rsquo;t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called as Lazy Learning. With KNN in classification problems, the label of a new data point is innferred from its K nearest data points.">
 
 
   
-  <meta itemprop="name" content="1. About Me">
-  <meta itemprop="description" content="Hello everyone, my name’s Thanh Hoai. I&#39;m currently studying at the SaiGon Teachnology University.I’m a sophomore at University of Information Technology. I really like computer science. I&#39;m very happy to behere to day. I want to share my understanding of Artificial Intelligence with everyone to convey:Người vá trời lấp bể Kẻ đắp luỹ xây thành Ta chỉ là chiếc lá Việc của mình là xanh
-Source: Trái tim người lính (thơ), Nguyễn Sĩ Đại, NXB Thanh niên.">
-  <meta itemprop="datePublished" content="2024-05-10T09:54:52-07:00">
-  <meta itemprop="dateModified" content="2024-05-10T09:54:52-07:00">
-  <meta itemprop="wordCount" content="105">
-  <meta itemprop="image" content="http://localhost:1313/images/aboutme.jpg">
+  <meta itemprop="name" content="3. K-nearest neighbors">
+  <meta itemprop="description" content="Tab of content Tab of content 1. Introduction 1. Introduction the K-Nearest Neighbors (KNN) is a supervised machine learning method employed to tackle classification and regression problems. When traning, it doesn&rsquo;t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called as Lazy Learning. With KNN in classification problems, the label of a new data point is innferred from its K nearest data points.">
+  <meta itemprop="datePublished" content="2024-06-10T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-06-10T00:00:00+00:00">
+  <meta itemprop="wordCount" content="68">
 
   
-  <meta itemprop="name" content="1. About Me">
-  <meta itemprop="description" content="Hello everyone, my name’s Thanh Hoai. I&#39;m currently studying at the SaiGon Teachnology University.I’m a sophomore at University of Information Technology. I really like computer science. I&#39;m very happy to behere to day. I want to share my understanding of Artificial Intelligence with everyone to convey:Người vá trời lấp bể Kẻ đắp luỹ xây thành Ta chỉ là chiếc lá Việc của mình là xanh
-Source: Trái tim người lính (thơ), Nguyễn Sĩ Đại, NXB Thanh niên.">
-  <meta itemprop="datePublished" content="2024-05-10T09:54:52-07:00">
-  <meta itemprop="dateModified" content="2024-05-10T09:54:52-07:00">
-  <meta itemprop="wordCount" content="105">
-  <meta itemprop="image" content="http://localhost:1313/images/aboutme.jpg">
+  <meta itemprop="name" content="3. K-nearest neighbors">
+  <meta itemprop="description" content="Tab of content Tab of content 1. Introduction 1. Introduction the K-Nearest Neighbors (KNN) is a supervised machine learning method employed to tackle classification and regression problems. When traning, it doesn&rsquo;t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called as Lazy Learning. With KNN in classification problems, the label of a new data point is innferred from its K nearest data points.">
+  <meta itemprop="datePublished" content="2024-06-10T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-06-10T00:00:00+00:00">
+  <meta itemprop="wordCount" content="68">
 </head><body class="flex relative h-full min-h-screen"><aside
   class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
   <p class="font-bold mb-5 flex items-center gap-2">
@@ -294,6 +285,17 @@ Source: Trái tim người lính (thơ), Nguyễn Sĩ Đại, NXB Thanh niên.">
       <h2 class="font-bold mb-5 py-1 pl-12 pr-3 md:px-3">Articles</h2>
     </a><div class="space-y-2.5">
       
+      <a class="article block px-3 py-4  bg-slate-900 dark:bg-slate-700 text-slate-50 "
+        href="/articles/k-nearest_neighbors/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">3. K-nearest neighbors</h3>
+        <div
+          class="text-sm  text-slate-400  line-clamp-2">
+          Tab of content Tab of content 1. Introduction 1. Introduction the K-Nearest Neighbors (KNN) is a supervised machine learning method employed to tackle classification and regression problems. When traning, it doesn&rsquo;t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called as Lazy Learning. With KNN in classification problems, the label of a new data point is innferred from its K nearest data points.
+        </div>
+      </a>
+      
       <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
         href="/articles/linear_regression/">
         
@@ -306,17 +308,6 @@ Source: Trái tim người lính (thơ), Nguyễn Sĩ Đại, NXB Thanh niên.">
       </a>
       
       <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
-        href="/articles/k-nearest_neighbors/">
-        
-        
-        <h3 class="text-lg font-semibold mb-0.5">3. K-nearest neighbors</h3>
-        <div
-          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
-          
-        </div>
-      </a>
-      
-      <a class="article block px-3 py-4  bg-slate-900 dark:bg-slate-700 text-slate-50 "
         href="/articles/aboutme/">
         
         
@@ -324,7 +315,7 @@ Source: Trái tim người lính (thơ), Nguyễn Sĩ Đại, NXB Thanh niên.">
         
         <h3 class="text-lg font-semibold mb-0.5">1. About Me</h3>
         <div
-          class="text-sm  text-slate-400  line-clamp-2">
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
           Hello everyone, my name’s Thanh Hoai. I'm currently studying at the SaiGon Teachnology University.I’m a sophomore at University of Information Technology. I really like computer science. I'm very happy to behere to day. I want to share my understanding of Artificial Intelligence with everyone to convey:Người vá trời lấp bể Kẻ đắp luỹ xây thành Ta chỉ là chiếc lá Việc của mình là xanh
 Source: Trái tim người lính (thơ), Nguyễn Sĩ Đại, NXB Thanh niên.
         </div>
@@ -336,29 +327,49 @@ Source: Trái tim người lính (thơ), Nguyễn Sĩ Đại, NXB Thanh niên.
     <article class="px-6 py-20 w-full mx-auto prose lg:prose-lg h-fit dark:prose-invert prose-img:mx-auto">
 
       
-      <h1 class="!mb-2">1. About Me</h1>
+      <h1 class="!mb-2">3. K-nearest neighbors</h1>
 
 	  
-      <p class="text-sm text-slate-500 !mb-8"> Planted May 10, 2024
+      <p class="text-sm text-slate-500 !mb-8"> Planted June 10, 2024
 		
 	  </p>
       
 
       
-      <img class="rounded max-w-full mx-auto mb-4" src="/images/aboutme.jpg" alt="1. About Me" />
-      
 
-      <p style="text-align:justify">
-Hello everyone, my name’s Thanh Hoai. I'm currently studying at the SaiGon Teachnology University.
-I’m a sophomore at University of Information Technology.  I really like computer science. I'm very happy to be
-here to day. I want to share my understanding of Artificial Intelligence with everyone to convey:
-</p>
-<p><em><strong><p style="text-align: left; padding-left: 40%"> Người vá trời lấp bể <br/> Kẻ đắp luỹ xây thành <br/> Ta chỉ là chiếc lá <br/> Việc của mình là xanh</p></strong></em></p>
-<p style="text-align: center; padding-left: 50%"> <a style="text-decoration: none;" href="https://nhandan.vn/nha-tho-nguyen-si-dai-nguoi-nong-dan-kieu-hanh-post631275.html"><b>Source: </b></a> Trái tim người lính (thơ), Nguyễn Sĩ Đại, NXB Thanh niên. </p>
-<p>Going through such lonely days, some friends stepped into my life and made it truly beautiful.
-<img src="/articles/a4.jpg" alt="TH and my friends"></p>
-<p>thanks you.</p>
-<p>→ <a href="/articles/linear_regression" >Let’s begin with the Linear Regression</a></p>
+      <!-- this is a code block for using mathematical symbols -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- This part includes the Javascript file -->
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<!-- this part configures it -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+<p><img src="/images/knn-1.png" alt="image info" title="Linear regression"></p>
+<h2 id="tab-of-content">Tab of content</h2>
+<ul>
+<li><a href="#tab-of-content" >Tab of content</a>
+<ul>
+<li><a href="#1-introduction" >1. Introduction</a></li>
+</ul>
+</li>
+</ul>
+<p><a id="Introduction"></a></p>
+<h3 id="1-introduction">1. Introduction</h3>
+<p>the <strong>K-Nearest Neighbors</strong> (KNN) is a supervised machine learning method employed to tackle classification and regression problems. When traning, it doesn&rsquo;t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called as <strong>Lazy Learning</strong>. With KNN in classification problems, the label of a new data point is innferred from its K nearest data points.</p>
 
     </article>
   </div>

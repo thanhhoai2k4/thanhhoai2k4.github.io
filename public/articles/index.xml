@@ -6,8 +6,15 @@
     <description>Recent content in Articles on Deep learning</description>
     <generator>Hugo</generator>
     <language>en-us-vi</language>
-    <lastBuildDate>Sun, 19 May 2024 06:49:04 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/articles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3. K-nearest neighbors</title>
+      <link>http://localhost:1313/articles/k-nearest_neighbors/</link>
+      <pubDate>Mon, 10 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/articles/k-nearest_neighbors/</guid>
+      <description>Tab of content Tab of content 1. Introduction 1. Introduction the K-Nearest Neighbors (KNN) is a supervised machine learning method employed to tackle classification and regression problems. When traning, it doesn&amp;rsquo;t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called as Lazy Learning. With KNN in classification problems, the label of a new data point is innferred from its K nearest data points.</description>
+    </item>
     <item>
       <title>2. Linear Regression</title>
       <link>http://localhost:1313/articles/linear_regression/</link>

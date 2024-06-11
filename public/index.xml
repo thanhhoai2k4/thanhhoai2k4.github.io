@@ -6,35 +6,21 @@
     <description>Recent content in Homepage on Deep learning</description>
     <generator>Hugo</generator>
     <language>en-us-vi</language>
-    <lastBuildDate>Sun, 19 May 2024 06:49:04 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3. K-nearest neighbors</title>
+      <link>http://localhost:1313/articles/k-nearest_neighbors/</link>
+      <pubDate>Mon, 10 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/articles/k-nearest_neighbors/</guid>
+      <description>Tab of content Tab of content 1. Introduction 1. Introduction the K-Nearest Neighbors (KNN) is a supervised machine learning method employed to tackle classification and regression problems. When traning, it doesn&amp;rsquo;t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called as Lazy Learning. With KNN in classification problems, the label of a new data point is innferred from its K nearest data points.</description>
+    </item>
     <item>
       <title>2. Linear Regression</title>
       <link>http://localhost:1313/articles/linear_regression/</link>
       <pubDate>Sun, 19 May 2024 06:49:04 -0700</pubDate>
       <guid>http://localhost:1313/articles/linear_regression/</guid>
       <description>Tab of content Tab of content 1. Introduction 2. Mathematical modeling 2.1 Mathematical analysis 2.2 Loss Function 2.3multiple linear regression 3. Methods 3.1 Closed-Form Solution 3.2 Gradient descent 4. Numerical studies 1. Introduction Linear regression is a Supervised Learning algorithm. It&amp;rsquo;s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&amp;hellip;</description>
-    </item>
-    <item>
-      <title>4 thì trong tiếng anh</title>
-      <link>http://localhost:1313/portfolio/4thihientai/</link>
-      <pubDate>Sat, 18 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/portfolio/4thihientai/</guid>
-      <description>Tab of content 1. Thì hiện tại đơn 1.1 Cách Thành Lập. 1.2 Cách Dùng Chính. 1.3 CÁCH THÊM S/ES. 2. HIỆN TẠI TIẾP DIỄN. 2.1 CÁCH THÀNH LẬP. 2.2 CÁCH DÙNG CHÍNH. 2.3 CÁCH THÊM ING. 3. HIỆN TẠI HOÀNG THANH. 3.1 CÁCH THÀNH LẬP. 3.2 CÁCH DÙNG CHÍNH. 3.3 CÁCH THÊM ED. 4. HIỆN TẠI TIẾP DIỄN. 4.1 CÁCH THÀNH LẬP. 4.2 CÁCH DÙNG CHÍNH. table content 1.</description>
-    </item>
-    <item>
-      <title>4 thì trong tiếng anh</title>
-      <link>http://localhost:1313/portfolio/4thiquakhu/</link>
-      <pubDate>Sat, 18 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/portfolio/4thiquakhu/</guid>
-      <description>Tab of content 1. QUÁ KHƯ ĐƠN 1.1 Cách Thành Lập. 1.2 Cách Dùng Chính. 2. QUÁ KHƯ TIẾP DIỄN 2.1 Cách Thành Lập. 2.2 Cách Dùng Chính. 3. QUÁ KHU HOÀN THÀNH 3.1 Cách Thành Lập. 3.2 Cách Dùng Chính. 4. QUÁ KHU HOÀN THÀNH TIẾP DIỄN 4.1 Cách Thành Lập. 4.2 Cách Dùng Chính. 1. QUÁ KHƯ ĐƠN (Past Simple Tense) 1.1 CÁCH THÀNH LẬP 1.2 CÁCH DỤNG CHÍNH Thì hiện tại đơn dùng để diễn tả: Diễn tả một hành động xảy ra và chấm dứt hoàn toàn trong quá khứ.</description>
-    </item>
-    <item>
-      <title>4 thì trong tiếng anh</title>
-      <link>http://localhost:1313/portfolio/4thituonglai/</link>
-      <pubDate>Sat, 18 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/portfolio/4thituonglai/</guid>
-      <description>Tab of content 1. Thì Tương Lai Đơn 1.1 Cách Thành Lập. 1.2 Cách Dùng Chính. 2. Thì Tương Lai Gần 2.1 Cách Thành Lập. 2.2 Cách Dùng Chính. 3. Thì Tương Lai Tiếp Diễn 3.1 Cách Thành Lập. 3.2 Cách Dùng Chính. 4. Thì Tương Lai Hoàng Thành 4.1 Cách Thành Lập. 4.2 Cách Dùng Chính. 5. Thì Tương Lai Hoàng Thành TIÊP DIỄN 5.1 Cách Thành Lập. 5.</description>
     </item>
     <item>
       <title>1. About Me</title>
