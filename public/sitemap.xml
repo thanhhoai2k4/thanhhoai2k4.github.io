@@ -2,34 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/articles/linear_regression/</loc>
-    <lastmod>2024-05-19T06:49:04-07:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/articles/k-nearest_neighbors/</loc>
-    <lastmod>2024-05-19T06:49:04-07:00</lastmod>
+    <lastmod>2024-06-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/articles/</loc>
-    <lastmod>2024-05-19T06:49:04-07:00</lastmod>
+    <lastmod>2024-06-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2024-06-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/articles/linear_regression/</loc>
     <lastmod>2024-05-19T06:49:04-07:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/portfolio/4thihientai/</loc>
-    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/portfolio/4thiquakhu/</loc>
-    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/portfolio/4thituonglai/</loc>
-    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/portfolio/</loc>
-    <lastmod>2024-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/articles/aboutme/</loc>
     <lastmod>2024-05-10T09:54:52-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/portfolio/</loc>
   </url><url>
     <loc>http://localhost:1313/stack/</loc>
   </url><url>
