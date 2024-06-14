@@ -171,6 +171,6 @@ Please read the code and perform a test run: [Code in here](https://github.com/t
 
 
 
-![Alt text](https://github.com/thanhhoai2k4/Machine_Learning_Basic/blob/main/section_1/linear_regression.png?raw=true "a title")
+![Alt text]( /images/linear_regression.png "title")
 
 
