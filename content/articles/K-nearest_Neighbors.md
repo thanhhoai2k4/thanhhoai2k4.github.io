@@ -40,18 +40,18 @@ MathJax.Hub.Config({
 <a id="Introduction"></a>
 ### 1. Introduction
 
-the **K-Nearest Neighbors** (**KNN**) is a supervised machine learning method **employed** to tackle classification and regression problems. When training, it doesn’t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called **Lazy Learning**. With KNN in classification problems, the label of a new data point is inferred from its K nearest data points. With KNN in regression problems, the values of a new data point is inferred from its a data point nearst with (**k** = 1). In another case, the new value is predicted by the average value of the k nearest neighbors (point).
+The **K-Nearest Neighbors** (**KNN**) is a supervised machine learning method **employed** to tackle classification and regression problems. When training, it doesn’t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called **Lazy Learning**. With KNN in classification problems, the label of a new data point is inferred from its K nearest data points. With KNN in regression problems, the values of a new data point is inferred from its a data point nearst with (**k** = 1). In another case, the new value is predicted by the average value of the k nearest neighbors (point).
 
 
 ![image info](/images/KNN_solv.png "KNN 2")
 
-looking at the piture, we can predict it! so, what color is the data? **Red** or **Blue** ? 
+Looking at the piture, we can predict it! so, what color is the data? **Red** or **Blue** ? 
 
 Through this algorithm, you will know which one it belongs to.
 
 
 <a id="2-mathematical-modeling"></a>
-### 2. mathematical modeling
+### 2. Mathematical modeling
 
 K-nearest Neighbors algorithm is Lazy learning. it has any loss Function. KNN mainly calculates the distance. There are two things to pay attention to at this point. How is the distance defined? How to calculate distances effectively?
 
@@ -59,14 +59,14 @@ K-nearest Neighbors algorithm is Lazy learning. it has any loss Function. KNN ma
 - When the amount of data is large, calculating the distance from a data point will be very time-consuming. If there is no effective calculation method, time will be wasted.
 
 
-distance from one point to each point in dataset:
+Distance from one point to each point in dataset:
 
 
 $$
   L_2 = || \mathbf{z}- \mathbf{x_i}||_2
 $$
 
-in the quation:
+In the quation:
 - **z** is one data point that needs to be predicted
 - \\( \mathbf{x_i} \\) is one data point in the data set.
 
@@ -77,7 +77,7 @@ $$
   L_2 = || \mathbf{z}- \mathbf{x_i}||_2^2
 $$
 
-distributive property:
+Distributive property:
 
 $$
   L_2 = || \mathbf{z}- \mathbf{x_i}||_2^2 = ( \mathbf{z} - \mathbf{x_i})^T ( \mathbf{z} - \mathbf{x_i}) = ||\mathbf{z}||_2^2 + ||\mathbf{x_i}||_2^2 + 2\mathbf{x_i}^T\mathbf{z}
@@ -90,4 +90,9 @@ We can ignore \\( ||\mathbf{z}||_2^2  \\) because the calculation of the distanc
 <a id="Code_example"></a>
 
 ### 3. Code example
-[Read documention on here ]("https://machinelearningmastery.com/tutorial-to-implement-k-nearest-neighbors-in-python-from-scratch/")
+I write code KNN with K = 1. [Code KNN in my github](https://github.com/thanhhoai2k4/Machine_Learning_Basic/tree/main/K-Nearest_Neighbors)
+
+
+
+When i excuted [knn.py](https://github.com/thanhhoai2k4/Machine_Learning_Basic/blob/main/K-Nearest_Neighbors/Knn.py) with split = 0.2. and my result is returned with 100 % percent exact rate. Moreover, when i set test_size = 0.5, percent is  a 94.6666 %.
+So i am really lucky <3.

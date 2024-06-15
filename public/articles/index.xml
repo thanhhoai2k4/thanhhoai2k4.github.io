@@ -13,7 +13,7 @@
       <link>http://localhost:1313/articles/k-nearest_neighbors/</link>
       <pubDate>Mon, 10 Jun 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/articles/k-nearest_neighbors/</guid>
-      <description>Tab of content Tab of content 1. Introduction 2. Mathematical modeling 3. Code example on iris flower dataset 1. Introduction the K-Nearest Neighbors (KNN) is a supervised machine learning method employed to tackle classification and regression problems. When training, it doesn’t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called Lazy Learning. With KNN in classification problems, the label of a new data point is inferred from its K nearest data points.</description>
+      <description>Tab of content Tab of content 1. Introduction 2. Mathematical modeling 3. Code example on iris flower dataset 1. Introduction The K-Nearest Neighbors (KNN) is a supervised machine learning method employed to tackle classification and regression problems. When training, it doesn’t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called Lazy Learning. With KNN in classification problems, the label of a new data point is inferred from its K nearest data points.</description>
     </item>
     <item>
       <title>2. Linear Regression</title>
