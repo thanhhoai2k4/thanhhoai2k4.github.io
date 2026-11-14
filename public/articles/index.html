@@ -1,42 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <link rel="icon" href="/favicon.ico">
-
   <title>
     Articles - Deep learning
   </title>
-
-  <meta name="description" content="" /><meta name="generator" content="Hugo 0.125.6">
-
+  <meta name="description" content="" /><meta name="generator" content="Hugo 0.169.0">
   <link rel="stylesheet" href="http://localhost:1313/css/main.css" />
 
   
-  
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <meta property="og:url" content="http://localhost:1313/articles/">
-  <meta property="og:site_name" content="Deep learning">
-  <meta property="og:title" content="Articles">
-  <meta property="og:locale" content="en-us-vi">
-  <meta property="og:type" content="website">
-
-
-  <meta name="twitter:card" content="summary"><meta name="twitter:title" content="Articles">
-<meta name="twitter:description" content="">
-
+	<meta property="og:site_name" content="Deep learning">
+	<meta property="og:title" content="Articles">
+	<meta property="og:locale" content="en_us_vi">
+	<meta property="og:type" content="website">
 
   
-  <meta itemprop="name" content="Articles">
-  <meta itemprop="dateModified" content="2024-06-10T00:00:00+00:00">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Articles">
 
   
-  <meta itemprop="name" content="Articles">
-  <meta itemprop="dateModified" content="2024-06-10T00:00:00+00:00">
-</head><body class="flex relative h-full min-h-screen"><aside
+	<meta itemprop="name" content="Articles">
+	<meta itemprop="datePublished" content="2024-06-25T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2024-06-25T00:00:00+00:00">
+</head>
+<body class="flex relative h-full min-h-screen"><aside
   class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
   <p class="font-bold mb-5 flex items-center gap-2">
     <button aria-label="Close sidebar"
@@ -267,13 +271,62 @@
     <a href="http://localhost:1313/articles/">
       <h2 class="font-bold mb-5 py-1 pl-12 pr-3 md:px-3">Articles</h2>
     </a><div class="space-y-2.5">
+      <a class="article block px-3 py-4 hover:bg-slate-200 dark:hover:bg-slate-700" href="/articles/yolov3/">
+
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">4. YOLOv3: Khởi Nguồn Của Kỷ Nguyên Object Detection Hiện Đại</h3>
+        <div class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">
+          <h2 id="tab-of-content">Tab of content</h2>
+<ul>
+<li><a href="#tab-of-content" >Tab of content</a>
+<ul>
+<li><a href="#1-loi-mo-dau-buoc-chan-vao-the-gioi-object-detection" >1. Lời mở đầu: Bước chân vào thế giới Object Detection</a></li>
+<li><a href="#2-su-ra-doi-cua-yolov3-va-buc-tranh-object-detection" >2. Sự ra đời của YOLOv3 và Bức tranh Object Detection</a></li>
+<li><a href="#3-kien-truc-mang-darknet-53-suc-manh-tu-residual-connections" >3. Kiến trúc mạng Darknet-53: Sức mạnh từ Residual Connections</a></li>
+<li><a href="#4-du-doan-da-ti-le-multi-scale-predictions-khac-phuc-bai-toan-vat-the-nho" >4. Dự đoán đa tỉ lệ (Multi-Scale Predictions): Khắc phục bài toán vật thể nhỏ</a></li>
+<li><a href="#5-co-che-anchor-box-va-du-doan-bounding-box" >5. Cơ chế Anchor Box và Dự đoán Bounding Box</a>
+<ul>
+<li><a href="#51-tim-9-anchor-boxes-bang-k-means" >5.1 Tìm 9 Anchor Boxes bằng K-Means</a></li>
+<li><a href="#52-cong-thuc-chuyen-doi-toa-do-bounding-box" >5.2 Công thức chuyển đổi tọa độ Bounding Box</a></li>
+</ul>
+</li>
+<li><a href="#6-ban-chat-toan-hoc-ham-mat-mat-loss-function" >6. Bản chất toán học: Hàm mất mát (Loss Function)</a>
+<ul>
+<li><a href="#61-loss-toa-do-bounding-box" >6.1 Loss tọa độ Bounding Box</a></li>
+<li><a href="#62-loss-do-tin-cay-vat-the-objectness-loss" >6.2 Loss độ tin cậy vật thể (Objectness Loss)</a></li>
+<li><a href="#63-loss-phan-loai-lop-classification-loss" >6.3 Loss phân loại lớp (Classification Loss)</a></li>
+<li><a href="#64-tong-hop-ham-mat-mat" >6.4 Tổng hợp hàm mất mát</a></li>
+</ul>
+</li>
+<li><a href="#7-nhin-nhan-ca-nhan-uu-nhuoc-diem-va-gia-tri-hoc-tap" >7. Nhìn nhận cá nhân: Ưu nhược điểm và Giá trị học tập</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a id="1-loi-mo-dau-buoc-chan-vao-the-gioi-object-detection"></a></p>
+        </div>
+      </a>
       <a class="article block px-3 py-4 hover:bg-slate-200 dark:hover:bg-slate-700" href="/articles/k-nearest_neighbors/">
 
         
         
         <h3 class="text-lg font-semibold mb-0.5">3. K-Nearest Neighbors</h3>
         <div class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">
-          Tab of content Tab of content 1. Introduction 2. Mathematical modeling 3. Code example on iris flower dataset 1. Introduction The K-Nearest Neighbors (KNN) is a supervised machine learning method employed to tackle classification and regression problems. When training, it doesn’t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called Lazy Learning. With KNN in classification problems, the label of a new data point is inferred from its K nearest data points.
+          <p><img src="/images/knn-1.png" alt="image info" title="KNN 1"></p>
+<h2 id="tab-of-content">Tab of content</h2>
+<ul>
+<li><a href="#tab-of-content" >Tab of content</a>
+<ul>
+<li><a href="#1-introduction" >1. Introduction</a></li>
+<li><a href="#2-mathematical-modeling" >2. Mathematical modeling</a></li>
+<li><a href="#Code_example" >3. Code example on iris flower dataset</a></li>
+</ul>
+</li>
+</ul>
+<p><a id="Introduction"></a></p>
+<h3 id="1-introduction">1. Introduction</h3>
+<p>The <strong>K-Nearest Neighbors</strong> (<strong>KNN</strong>) is a supervised machine learning method <strong>employed</strong> to tackle classification and regression problems. When training, it doesn’t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called <strong>Lazy Learning</strong>. With KNN in classification problems, the label of a new data point is inferred from its K nearest data points. With KNN in regression problems, the values of a new data point is inferred from its a data point nearst with (<strong>k</strong> = 1). In another case, the new value is predicted by the average value of the k nearest neighbors (point).</p>
         </div>
       </a>
       <a class="article block px-3 py-4 hover:bg-slate-200 dark:hover:bg-slate-700" href="/articles/linear_regression/">
@@ -282,7 +335,34 @@
         
         <h3 class="text-lg font-semibold mb-0.5">2. Linear Regression</h3>
         <div class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">
-          Tab of content Tab of content 1. Introduction 2. Mathematical modeling 2.1 Mathematical analysis 2.2 Loss Function 2.3multiple linear regression 3. Methods 3.1 Closed-Form Solution 3.2 Gradient descent 4. Numerical studies 1. Introduction Linear regression is a Supervised Learning algorithm. It&rsquo;s purpose is to find relationship between the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&hellip;
+          <p><img src="/images/2linear-regression-Head.png" alt="image info" title="Linear regression"></p>
+<h2 id="tab-of-content">Tab of content</h2>
+<ul>
+<li><a href="#tab-of-content" >Tab of content</a>
+<ul>
+<li><a href="#1-introduction" >1. Introduction</a></li>
+<li><a href="#2-mathematical-modeling" >2. Mathematical modeling</a>
+<ul>
+<li><a href="#21-mathematical-analysis" >2.1 Mathematical analysis</a></li>
+<li><a href="#22-loss-function" >2.2 Loss Function</a></li>
+<li><a href="#23multiple-linear-regression" >2.3multiple linear regression</a></li>
+</ul>
+</li>
+<li><a href="#3-methods" >3. Methods</a>
+<ul>
+<li><a href="#31-closed-form-solution" >3.1 Closed-Form Solution</a></li>
+<li><a href="#32-gradient-descent" >3.2 Gradient descent</a></li>
+</ul>
+</li>
+<li><a href="#4-numerical-studies" >4. Numerical studies</a></li>
+</ul>
+</li>
+</ul>
+<!-- headings -->
+<p><a id="Introduction"></a></p>
+<h3 id="1-introduction">1. Introduction</h3>
+<p>Linear regression is a Supervised Learning algorithm. It&rsquo;s purpose is to find relationship between
+the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&hellip;</p>
         </div>
       </a>
       <a class="article block px-3 py-4 hover:bg-slate-200 dark:hover:bg-slate-700" href="/articles/aboutme/">
@@ -293,8 +373,12 @@
         
         <h3 class="text-lg font-semibold mb-0.5">1. About Me</h3>
         <div class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">
-          Hello everyone, my name’s Thanh Hoai. I'm currently studying at the SaiGon Teachnology University.I’m a sophomore at University of Information Technology. I really like computer science. I'm very happy to behere to day. I want to share my understanding of Artificial Intelligence with everyone to convey:Người vá trời lấp bể Kẻ đắp luỹ xây thành Ta chỉ là chiếc lá Việc của mình là xanh
-Source: Trái tim người lính (thơ), Nguyễn Sĩ Đại, NXB Thanh niên.
+          <p style="text-align:justify">
+Hello everyone, my name’s Thanh Hoai. I'm currently studying at the SaiGon Teachnology University.
+I’m a sophomore at University of Information Technology.  I really like computer science. I'm very happy to be
+here to day. I want to share my understanding of Artificial Intelligence with everyone to convey:
+</p>
+<p><em><strong><p style="text-align: left; padding-left: 40%"> Người vá trời lấp bể <br/> Kẻ đắp luỹ xây thành <br/> Ta chỉ là chiếc lá <br/> Việc của mình là xanh</p></strong></em></p>
         </div>
       </a>
       </div>
@@ -309,9 +393,6 @@ Source: Trái tim người lính (thơ), Nguyễn Sĩ Đại, NXB Thanh niên.
 
   
 <script type="text/javascript" src="/main.js" defer></script>
-
-
-  
 
 
 </body>

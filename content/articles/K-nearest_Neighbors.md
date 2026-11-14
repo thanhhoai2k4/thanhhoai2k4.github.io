@@ -4,30 +4,6 @@ date = 2024-06-10
 +++
 
 
-<!-- this is a code block for using mathematical symbols -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-<!-- This part includes the Javascript file -->
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-<!-- this part configures it -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[','\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
-</script>
-
 ![image info](/images/knn-1.png "KNN 1")
 
 ## Tab of content
@@ -96,3 +72,5 @@ I write code KNN with K = 1. [Code KNN in my github](https://github.com/thanhhoa
 
 When i excuted [knn.py](https://github.com/thanhhoai2k4/Machine_Learning_Basic/blob/main/K-Nearest_Neighbors/Knn.py) with split = 0.2. and my result is returned with 100 % percent exact rate. Moreover, when i set test_size = 0.5, percent is  a 94.6666 %.
 So i am really lucky <3.
+
+→ [Next: 4. YOLOv3: Khởi Nguồn Của Object Detection Hiện Đại](/articles/yolov3)

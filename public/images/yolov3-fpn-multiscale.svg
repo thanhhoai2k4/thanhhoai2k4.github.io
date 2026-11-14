@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181825"/>
+      <stop offset="100%" stop-color="#1e1e2e"/>
+    </linearGradient>
+    <linearGradient id="card-dark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a2b3d"/>
+      <stop offset="100%" stop-color="#181825"/>
+    </linearGradient>
+
+    <filter id="shadow2" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+
+    <marker id="arr-pink" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f38ba8"/>
+    </marker>
+    <marker id="arr-orange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#fab387"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#a6e3a1"/>
+    </marker>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#89b4fa"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="580" rx="16" fill="url(#bg-grad2)" stroke="#45475a" stroke-width="1.5"/>
+
+  <!-- Title -->
+  <text x="500" y="38" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#cdd6f4">Cơ Chế Kim Tự Tháp Đa Tỉ Lệ (FPN) trong YOLOv3</text>
+  <text x="500" y="60" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#a6adc8">Kết hợp Ngữ nghĩa sâu (Deep Semantics) và Độ phân giải không gian cao (High Spatial Resolution)</text>
+
+  <!-- Column 1: Backbone Bottom-up (Darknet-53) -->
+  <g transform="translate(40, 90)">
+    <!-- Column Header -->
+    <rect width="250" height="34" rx="8" fill="#313244"/>
+    <text x="125" y="22" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#89b4fa">1. ĐƯỜNG TRÍCH XUẤT (Bottom-up)</text>
+
+    <!-- Stage 3 Box -->
+    <g transform="translate(0, 50)" filter="url(#shadow2)">
+      <rect width="250" height="85" rx="10" fill="url(#card-dark)" stroke="#a6e3a1" stroke-width="1.5"/>
+      <text x="15" y="24" font-family="sans-serif" font-size="12" font-weight="700" fill="#a6e3a1">Tầng Nông (Stage 3)</text>
+      <text x="15" y="46" font-family="monospace" font-size="13" font-weight="700" fill="#cdd6f4">52 x 52 x 256</text>
+      <text x="15" y="66" font-family="sans-serif" font-size="10" fill="#94e2d5">Độ phân giải cao | Rất giàu chi tiết không gian</text>
+    </g>
+
+    <!-- Downsample Arrow 1 -->
+    <path d="M 125 140 L 125 170" fill="none" stroke="#fab387" stroke-width="2" marker-end="url(#arr-orange)"/>
+    <text x="145" y="160" font-family="sans-serif" font-size="10" fill="#fab387">Stride 2</text>
+
+    <!-- Stage 4 Box -->
+    <g transform="translate(0, 180)" filter="url(#shadow2)">
+      <rect width="250" height="85" rx="10" fill="url(#card-dark)" stroke="#fab387" stroke-width="1.5"/>
+      <text x="15" y="24" font-family="sans-serif" font-size="12" font-weight="700" fill="#fab387">Tầng Giữa (Stage 4)</text>
+      <text x="15" y="46" font-family="monospace" font-size="13" font-weight="700" fill="#cdd6f4">26 x 26 x 512</text>
+      <text x="15" y="66" font-family="sans-serif" font-size="10" fill="#f9e2af">Độ phân giải vừa | Cân bằng ngữ nghĩa &amp; biên</text>
+    </g>
+
+    <!-- Downsample Arrow 2 -->
+    <path d="M 125 270 L 125 300" fill="none" stroke="#f38ba8" stroke-width="2" marker-end="url(#arr-pink)"/>
+    <text x="145" y="290" font-family="sans-serif" font-size="10" fill="#f38ba8">Stride 2</text>
+
+    <!-- Stage 5 Box -->
+    <g transform="translate(0, 310)" filter="url(#shadow2)">
+      <rect width="250" height="85" rx="10" fill="url(#card-dark)" stroke="#f38ba8" stroke-width="1.5"/>
+      <text x="15" y="24" font-family="sans-serif" font-size="12" font-weight="700" fill="#f38ba8">Tầng Sâu Nhất (Stage 5)</text>
+      <text x="15" y="46" font-family="monospace" font-size="13" font-weight="700" fill="#cdd6f4">13 x 13 x 1024</text>
+      <text x="15" y="66" font-family="sans-serif" font-size="10" fill="#eba0ac">Độ phân giải thấp | Ngữ nghĩa rất trừu tượng</text>
+    </g>
+  </g>
+
+  <!-- Lateral & Top-Down Connectors -->
+  <!-- Direct Path Stage 5 -> Layer 82 Head -->
+  <path d="M 290 445 L 430 445" fill="none" stroke="#f38ba8" stroke-width="2.5" marker-end="url(#arr-pink)"/>
+
+  <!-- Upsample Path from 13x13 to 26x26 -->
+  <path d="M 490 445 L 530 445 L 530 330 L 470 330" fill="none" stroke="#fab387" stroke-width="2.5"/>
+  <!-- Lateral connection from Stage 4 (26x26) -->
+  <path d="M 290 315 L 350 315" fill="none" stroke="#fab387" stroke-width="2" stroke-dasharray="4" marker-end="url(#arr-orange)"/>
+
+  <!-- Fusion Block 1: 26x26 -->
+  <g transform="translate(355, 290)" filter="url(#shadow2)">
+    <rect width="115" height="52" rx="8" fill="#181825" stroke="#fab387" stroke-width="1.5"/>
+    <text x="57" y="22" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#fab387">Upsample 2x</text>
+    <text x="57" y="40" text-anchor="middle" font-family="monospace" font-size="9" fill="#cdd6f4">+ Concat 26x26</text>
+  </g>
+  <path d="M 470 316 L 570 316" fill="none" stroke="#fab387" stroke-width="2.5" marker-end="url(#arr-orange)"/>
+
+  <!-- Upsample Path from 26x26 to 52x52 -->
+  <path d="M 640 316 L 670 316 L 670 200 L 610 200" fill="none" stroke="#a6e3a1" stroke-width="2.5"/>
+  <!-- Lateral connection from Stage 3 (52x52) -->
+  <path d="M 290 185 L 490 185" fill="none" stroke="#a6e3a1" stroke-width="2" stroke-dasharray="4" marker-end="url(#arr-green)"/>
+
+  <!-- Fusion Block 2: 52x52 -->
+  <g transform="translate(495, 160)" filter="url(#shadow2)">
+    <rect width="115" height="52" rx="8" fill="#181825" stroke="#a6e3a1" stroke-width="1.5"/>
+    <text x="57" y="22" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#a6e3a1">Upsample 2x</text>
+    <text x="57" y="40" text-anchor="middle" font-family="monospace" font-size="9" fill="#cdd6f4">+ Concat 52x52</text>
+  </g>
+  <path d="M 610 186 L 710 186" fill="none" stroke="#a6e3a1" stroke-width="2.5" marker-end="url(#arr-green)"/>
+
+  <!-- Column 2: 3 Multi-Scale Detection Heads -->
+
+  <!-- Scale 3: Small Objects (Layer 106) -->
+  <g transform="translate(715, 140)" filter="url(#shadow2)">
+    <rect width="250" height="95" rx="10" fill="url(#card-dark)" stroke="#a6e3a1" stroke-width="2"/>
+    <rect x="0" y="0" width="250" height="26" rx="10" fill="#a6e3a1" opacity="0.2"/>
+    <text x="15" y="18" font-family="sans-serif" font-size="11" font-weight="700" fill="#a6e3a1">LAYER 106: SCALE 3 (VẬT THỂ NHỎ)</text>
+    <text x="15" y="44" font-family="monospace" font-size="13" font-weight="700" fill="#cdd6f4">Grid: 52 x 52 x 255</text>
+    <text x="15" y="62" font-family="sans-serif" font-size="10" fill="#a6adc8">Stride = 8 | 8,112 hộp ứng viên</text>
+    <text x="15" y="80" font-family="sans-serif" font-size="10" fill="#94e2d5">Ví dụ: Biển báo xa, điện thoại, người nhỏ</text>
+  </g>
+
+  <!-- Scale 2: Medium Objects (Layer 94) -->
+  <g transform="translate(575, 270)" filter="url(#shadow2)">
+    <rect width="270" height="95" rx="10" fill="url(#card-dark)" stroke="#fab387" stroke-width="2"/>
+    <rect x="0" y="0" width="270" height="26" rx="10" fill="#fab387" opacity="0.2"/>
+    <text x="15" y="18" font-family="sans-serif" font-size="11" font-weight="700" fill="#fab387">LAYER 94: SCALE 2 (VẬT THỂ VỪA)</text>
+    <text x="15" y="44" font-family="monospace" font-size="13" font-weight="700" fill="#cdd6f4">Grid: 26 x 26 x 255</text>
+    <text x="15" y="62" font-family="sans-serif" font-size="10" fill="#a6adc8">Stride = 16 | 2,028 hộp ứng viên</text>
+    <text x="15" y="80" font-family="sans-serif" font-size="10" fill="#f9e2af">Ví dụ: Ô tô, xe máy, bàn ghế, thú cưng</text>
+  </g>
+
+  <!-- Scale 1: Large Objects (Layer 82) -->
+  <g transform="translate(435, 400)" filter="url(#shadow2)">
+    <rect width="280" height="95" rx="10" fill="url(#card-dark)" stroke="#f38ba8" stroke-width="2"/>
+    <rect x="0" y="0" width="280" height="26" rx="10" fill="#f38ba8" opacity="0.2"/>
+    <text x="15" y="18" font-family="sans-serif" font-size="11" font-weight="700" fill="#f38ba8">LAYER 82: SCALE 1 (VẬT THỂ LỚN)</text>
+    <text x="15" y="44" font-family="monospace" font-size="13" font-weight="700" fill="#cdd6f4">Grid: 13 x 13 x 255</text>
+    <text x="15" y="62" font-family="sans-serif" font-size="10" fill="#a6adc8">Stride = 32 | 507 hộp ứng viên</text>
+    <text x="15" y="80" font-family="sans-serif" font-size="10" fill="#eba0ac">Ví dụ: Xe bus, xe tải, người chụp cận cảnh</text>
+  </g>
+
+  <!-- Bottom Explanatory Summary -->
+  <g transform="translate(40, 510)">
+    <rect width="920" height="48" rx="8" fill="#11111b" stroke="#313244"/>
+    <text x="20" y="22" font-family="sans-serif" font-size="11" font-weight="700" fill="#89b4fa">💡 Nguyên lý cốt lõi của FPN:</text>
+    <text x="20" y="38" font-family="sans-serif" font-size="10" fill="#a6adc8">Tầng sâu có ngữ nghĩa cao nhưng mất vị trí pixel -> Phóng to (Upsample 2x) và Ghép (Concat) với tầng nông giàu chi tiết không gian -> Bắt trọn vẹn cả 3 kích cỡ vật thể.</text>
+  </g>
+</svg>
+

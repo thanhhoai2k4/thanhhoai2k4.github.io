@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/favicon.ico">
+  <title>
+    4. YOLOv3: Khởi Nguồn Của Kỷ Nguyên Object Detection Hiện Đại - Deep learning
+  </title>
+  <meta name="description" content="Tab of content
+
+Tab of content
+
+1. Lời mở đầu: Bước chân vào thế giới Object Detection
+2. Sự ra đời của YOLOv3 và Bức tranh Object Detection
+3. Kiến trúc mạng Darknet-53: Sức mạnh từ Residual Connections
+4. Dự đoán đa tỉ lệ (Multi-Scale Predictions): Khắc phục bài toán vật thể nhỏ
+5. Cơ chế Anchor Box và Dự đoán Bounding Box
+
+5.1 Tìm 9 Anchor Boxes bằng K-Means
+5.2 Công thức chuyển đổi tọa độ Bounding Box
+
+
+6. Bản chất toán học: Hàm mất mát (Loss Function)
+
+6.1 Loss tọa độ Bounding Box
+6.2 Loss độ tin cậy vật thể (Objectness Loss)
+6.3 Loss phân loại lớp (Classification Loss)
+6.4 Tổng hợp hàm mất mát
+
+
+7. Nhìn nhận cá nhân: Ưu nhược điểm và Giá trị học tập
+
+
+
+
+" /><meta name="generator" content="Hugo 0.169.0">
+  <link rel="stylesheet" href="http://localhost:1313/css/main.css" />
+
+  
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <meta property="og:url" content="http://localhost:1313/articles/yolov3/">
+	<meta property="og:site_name" content="Deep learning">
+	<meta property="og:title" content="4. YOLOv3: Khởi Nguồn Của Kỷ Nguyên Object Detection Hiện Đại">
+	<meta property="og:description" content="Tab of content Tab of content 1. Lời mở đầu: Bước chân vào thế giới Object Detection 2. Sự ra đời của YOLOv3 và Bức tranh Object Detection 3. Kiến trúc mạng Darknet-53: Sức mạnh từ Residual Connections 4. Dự đoán đa tỉ lệ (Multi-Scale Predictions): Khắc phục bài toán vật thể nhỏ 5. Cơ chế Anchor Box và Dự đoán Bounding Box 5.1 Tìm 9 Anchor Boxes bằng K-Means 5.2 Công thức chuyển đổi tọa độ Bounding Box 6. Bản chất toán học: Hàm mất mát (Loss Function) 6.1 Loss tọa độ Bounding Box 6.2 Loss độ tin cậy vật thể (Objectness Loss) 6.3 Loss phân loại lớp (Classification Loss) 6.4 Tổng hợp hàm mất mát 7. Nhìn nhận cá nhân: Ưu nhược điểm và Giá trị học tập">
+	<meta property="og:locale" content="en_us_vi">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="articles">
+		<meta property="article:published_time" content="2024-06-25T00:00:00+00:00">
+		<meta property="article:modified_time" content="2024-06-25T00:00:00+00:00">
+
+  
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="4. YOLOv3: Khởi Nguồn Của Kỷ Nguyên Object Detection Hiện Đại">
+	<meta name="twitter:description" content="Tab of content Tab of content 1. Lời mở đầu: Bước chân vào thế giới Object Detection 2. Sự ra đời của YOLOv3 và Bức tranh Object Detection 3. Kiến trúc mạng Darknet-53: Sức mạnh từ Residual Connections 4. Dự đoán đa tỉ lệ (Multi-Scale Predictions): Khắc phục bài toán vật thể nhỏ 5. Cơ chế Anchor Box và Dự đoán Bounding Box 5.1 Tìm 9 Anchor Boxes bằng K-Means 5.2 Công thức chuyển đổi tọa độ Bounding Box 6. Bản chất toán học: Hàm mất mát (Loss Function) 6.1 Loss tọa độ Bounding Box 6.2 Loss độ tin cậy vật thể (Objectness Loss) 6.3 Loss phân loại lớp (Classification Loss) 6.4 Tổng hợp hàm mất mát 7. Nhìn nhận cá nhân: Ưu nhược điểm và Giá trị học tập">
+
+  
+	<meta itemprop="name" content="4. YOLOv3: Khởi Nguồn Của Kỷ Nguyên Object Detection Hiện Đại">
+	<meta itemprop="description" content="Tab of content Tab of content 1. Lời mở đầu: Bước chân vào thế giới Object Detection 2. Sự ra đời của YOLOv3 và Bức tranh Object Detection 3. Kiến trúc mạng Darknet-53: Sức mạnh từ Residual Connections 4. Dự đoán đa tỉ lệ (Multi-Scale Predictions): Khắc phục bài toán vật thể nhỏ 5. Cơ chế Anchor Box và Dự đoán Bounding Box 5.1 Tìm 9 Anchor Boxes bằng K-Means 5.2 Công thức chuyển đổi tọa độ Bounding Box 6. Bản chất toán học: Hàm mất mát (Loss Function) 6.1 Loss tọa độ Bounding Box 6.2 Loss độ tin cậy vật thể (Objectness Loss) 6.3 Loss phân loại lớp (Classification Loss) 6.4 Tổng hợp hàm mất mát 7. Nhìn nhận cá nhân: Ưu nhược điểm và Giá trị học tập">
+	<meta itemprop="datePublished" content="2024-06-25T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2024-06-25T00:00:00+00:00">
+	<meta itemprop="wordCount" content="2960">
+</head>
+<body class="flex relative h-full min-h-screen"><aside
+  class="will-change-transform transform transition-transform -translate-x-full absolute top-0 left-0 md:relative md:translate-x-0 w-3/4 md:basis-60 h-full min-h-screen p-3 bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col gap-2.5 z-20 sidebar flex-shrink-0">
+  <p class="font-bold mb-5 flex items-center gap-2">
+    <button aria-label="Close sidebar"
+      class="md:hidden menu-trigger-close p-1 rounded text-slate-800 dark:text-slate-50 hover:bg-slate-200 dark:hover:bg-slate-700"><svg class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+</svg></button>
+    <a href="http://localhost:1313/" class="px-2">
+      <span>Deep learning</span>
+    </a>
+    <button aria-label="Toggle dark mode"
+      class="dark-mode-toggle p-2 rounded border dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700"><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <circle cx="12" cy="12" r="4" />
+  <path d="M3 12h1M12 3v1M20 12h1M12 20v1M5.6 5.6l.7 .7M18.4 5.6l-.7 .7M17.7 17.7l.7 .7M6.3 17.7l-.7 .7" />
+</svg></button>
+  </p>
+
+  
+  <ul class="list-none flex flex-col gap-1">
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/" >
+        <span>Home</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  text-slate-400 font-semibold pb-0 pl-1 border-b cursor-default pointer-events-none "
+        href="#" >
+        <span>Content</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/articles" >
+        <span>Articles</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/portfolio" >
+        <span>Portfolio</span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm flex items-center justify-between  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/stack" >
+        <span>Stack</span>
+        
+      </a>
+    </li>
+    
+  </ul>
+
+  <div class="flex-1"></div>
+
+  
+
+  <ul class="list-none flex flex-wrap justify-center gap-1 pt-2 border-t border-slate-200 dark:border-slate-600">
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://twitter.com/ThanhHoai0901" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">Twitter</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path
+    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://github.com/thanhhoai2k4" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">GitHub</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path
+    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://www.linkedin.com/in/thanh-hoai-41b85a259/" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">LinkedIn</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+  <rect x="2" y="9" width="4" height="12" />
+  <circle cx="4" cy="4" r="2" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://www.instagram.com/thanhhoai180104/" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">Instagram</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://dribbble.com" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">Dribbble</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10" />
+  <path
+    d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://codepen.io" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">Codepen</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" />
+  <line x1="12" y1="22" x2="12" y2="15.5" />
+  <polyline points="22 8.5 12 15.5 2 8.5" />
+  <polyline points="2 15.5 12 8.5 22 15.5" />
+  <line x1="12" y1="2" x2="12" y2="8.5" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="https://twitch.com" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">Twitch</span>
+        
+        <span><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+  stroke-linecap="round" stroke-linejoin="round">
+  <path d="M21 2H3v16h5v4l4-4h5l4-4V2zM11 11V7M16 11V7" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="disbray100@gmail.com" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">Email</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <rect x="3" y="5" width="18" height="14" rx="2" />
+  <polyline points="3 7 12 13 21 7" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+    <li>
+      <a class="px-2 py-1.5 rounded-md text-sm block text-slate-800 dark:text-slate-50  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/articles/index.xml" target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">RSS</span>
+        
+        <span><svg class="h-4 w-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg></span>
+        
+      </a>
+    </li>
+    
+  </ul>
+</aside>
+
+<div
+  class="fixed bg-slate-700 bg-opacity-5 transition duration-200 ease-in-out inset-0 z-10 pointer-events-auto md:hidden left-0 top-0 w-full h-full hidden menu-overlay">
+</div>
+
+<button aria-label="Toggle Sidebar"
+  class="md:hidden absolute top-3 left-3 z-10 menu-trigger p-1 rounded text-slate-800 dark:text-slate-50 hover:bg-slate-100"><svg class="h-6 w-6" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+  fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" />
+  <line x1="4" y1="6" x2="20" y2="6" />
+  <line x1="4" y1="12" x2="20" y2="12" />
+  <line x1="4" y1="18" x2="16" y2="18" />
+</svg></button>
+
+
+
+
+
+
+<div class="flex flex-1 h-screen relative w-full min-w-0">
+
+  <section
+    class="will-change-transform transform transition-transform -translate-x-[200%] absolute top-0 left-0 lg:relative
+  lg:translate-x-0 lg:basis-[400px] h-full bg-slate-50 dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 lg:flex flex-col py-3 overflow-y-auto scroll-area flex-shrink-0">
+    
+    
+    <a href="http://localhost:1313/articles/">
+      <h2 class="font-bold mb-5 py-1 pl-12 pr-3 md:px-3">Articles</h2>
+    </a><div class="space-y-2.5">
+      
+      <a class="article block px-3 py-4  bg-slate-900 dark:bg-slate-700 text-slate-50 "
+        href="/articles/yolov3/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">4. YOLOv3: Khởi Nguồn Của Kỷ Nguyên Object Detection Hiện Đại</h3>
+        <div
+          class="text-sm  text-slate-400  line-clamp-2">
+          <h2 id="tab-of-content">Tab of content</h2>
+<ul>
+<li><a href="#tab-of-content" >Tab of content</a>
+<ul>
+<li><a href="#1-loi-mo-dau-buoc-chan-vao-the-gioi-object-detection" >1. Lời mở đầu: Bước chân vào thế giới Object Detection</a></li>
+<li><a href="#2-su-ra-doi-cua-yolov3-va-buc-tranh-object-detection" >2. Sự ra đời của YOLOv3 và Bức tranh Object Detection</a></li>
+<li><a href="#3-kien-truc-mang-darknet-53-suc-manh-tu-residual-connections" >3. Kiến trúc mạng Darknet-53: Sức mạnh từ Residual Connections</a></li>
+<li><a href="#4-du-doan-da-ti-le-multi-scale-predictions-khac-phuc-bai-toan-vat-the-nho" >4. Dự đoán đa tỉ lệ (Multi-Scale Predictions): Khắc phục bài toán vật thể nhỏ</a></li>
+<li><a href="#5-co-che-anchor-box-va-du-doan-bounding-box" >5. Cơ chế Anchor Box và Dự đoán Bounding Box</a>
+<ul>
+<li><a href="#51-tim-9-anchor-boxes-bang-k-means" >5.1 Tìm 9 Anchor Boxes bằng K-Means</a></li>
+<li><a href="#52-cong-thuc-chuyen-doi-toa-do-bounding-box" >5.2 Công thức chuyển đổi tọa độ Bounding Box</a></li>
+</ul>
+</li>
+<li><a href="#6-ban-chat-toan-hoc-ham-mat-mat-loss-function" >6. Bản chất toán học: Hàm mất mát (Loss Function)</a>
+<ul>
+<li><a href="#61-loss-toa-do-bounding-box" >6.1 Loss tọa độ Bounding Box</a></li>
+<li><a href="#62-loss-do-tin-cay-vat-the-objectness-loss" >6.2 Loss độ tin cậy vật thể (Objectness Loss)</a></li>
+<li><a href="#63-loss-phan-loai-lop-classification-loss" >6.3 Loss phân loại lớp (Classification Loss)</a></li>
+<li><a href="#64-tong-hop-ham-mat-mat" >6.4 Tổng hợp hàm mất mát</a></li>
+</ul>
+</li>
+<li><a href="#7-nhin-nhan-ca-nhan-uu-nhuoc-diem-va-gia-tri-hoc-tap" >7. Nhìn nhận cá nhân: Ưu nhược điểm và Giá trị học tập</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a id="1-loi-mo-dau-buoc-chan-vao-the-gioi-object-detection"></a></p>
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/articles/k-nearest_neighbors/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">3. K-Nearest Neighbors</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          <p><img src="/images/knn-1.png" alt="image info" title="KNN 1"></p>
+<h2 id="tab-of-content">Tab of content</h2>
+<ul>
+<li><a href="#tab-of-content" >Tab of content</a>
+<ul>
+<li><a href="#1-introduction" >1. Introduction</a></li>
+<li><a href="#2-mathematical-modeling" >2. Mathematical modeling</a></li>
+<li><a href="#Code_example" >3. Code example on iris flower dataset</a></li>
+</ul>
+</li>
+</ul>
+<p><a id="Introduction"></a></p>
+<h3 id="1-introduction">1. Introduction</h3>
+<p>The <strong>K-Nearest Neighbors</strong> (<strong>KNN</strong>) is a supervised machine learning method <strong>employed</strong> to tackle classification and regression problems. When training, it doesn’t learn anything from the data but mechanically memorizes it. Therefore, this algorithm is called <strong>Lazy Learning</strong>. With KNN in classification problems, the label of a new data point is inferred from its K nearest data points. With KNN in regression problems, the values of a new data point is inferred from its a data point nearst with (<strong>k</strong> = 1). In another case, the new value is predicted by the average value of the k nearest neighbors (point).</p>
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/articles/linear_regression/">
+        
+        
+        <h3 class="text-lg font-semibold mb-0.5">2. Linear Regression</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          <p><img src="/images/2linear-regression-Head.png" alt="image info" title="Linear regression"></p>
+<h2 id="tab-of-content">Tab of content</h2>
+<ul>
+<li><a href="#tab-of-content" >Tab of content</a>
+<ul>
+<li><a href="#1-introduction" >1. Introduction</a></li>
+<li><a href="#2-mathematical-modeling" >2. Mathematical modeling</a>
+<ul>
+<li><a href="#21-mathematical-analysis" >2.1 Mathematical analysis</a></li>
+<li><a href="#22-loss-function" >2.2 Loss Function</a></li>
+<li><a href="#23multiple-linear-regression" >2.3multiple linear regression</a></li>
+</ul>
+</li>
+<li><a href="#3-methods" >3. Methods</a>
+<ul>
+<li><a href="#31-closed-form-solution" >3.1 Closed-Form Solution</a></li>
+<li><a href="#32-gradient-descent" >3.2 Gradient descent</a></li>
+</ul>
+</li>
+<li><a href="#4-numerical-studies" >4. Numerical studies</a></li>
+</ul>
+</li>
+</ul>
+<!-- headings -->
+<p><a id="Introduction"></a></p>
+<h3 id="1-introduction">1. Introduction</h3>
+<p>Linear regression is a Supervised Learning algorithm. It&rsquo;s purpose is to find relationship between
+the independent variable and a dependent variable to predict the outcome of the new feature. Linear regression models are often used to predict the value of a continuous number such as salary, house price, age,&hellip;</p>
+        </div>
+      </a>
+      
+      <a class="article block px-3 py-4  hover:bg-slate-200 dark:hover:bg-slate-700 "
+        href="/articles/aboutme/">
+        
+        
+        <img class="rounded max-w-full mb-4" src="/images/aboutme.jpg" alt="1. About Me" />
+        
+        <h3 class="text-lg font-semibold mb-0.5">1. About Me</h3>
+        <div
+          class="text-sm  text-slate-500 dark:text-slate-400  line-clamp-2">
+          <p style="text-align:justify">
+Hello everyone, my name’s Thanh Hoai. I'm currently studying at the SaiGon Teachnology University.
+I’m a sophomore at University of Information Technology.  I really like computer science. I'm very happy to be
+here to day. I want to share my understanding of Artificial Intelligence with everyone to convey:
+</p>
+<p><em><strong><p style="text-align: left; padding-left: 40%"> Người vá trời lấp bể <br/> Kẻ đắp luỹ xây thành <br/> Ta chỉ là chiếc lá <br/> Việc của mình là xanh</p></strong></em></p>
+        </div>
+      </a>
+      </div>
+    </section>
+
+  <div class="overflow-y-auto h-screen w-full">
+    <article class="px-6 py-20 w-full mx-auto prose lg:prose-lg h-fit dark:prose-invert prose-img:mx-auto">
+
+      
+      <h1 class="!mb-2">4. YOLOv3: Khởi Nguồn Của Kỷ Nguyên Object Detection Hiện Đại</h1>
+
+	  
+      <p class="text-sm text-slate-500 !mb-8"> Planted June 25, 2024
+		
+	  </p>
+      
+
+      
+
+      <h2 id="tab-of-content">Tab of content</h2>
+<ul>
+<li><a href="#tab-of-content" >Tab of content</a>
+<ul>
+<li><a href="#1-loi-mo-dau-buoc-chan-vao-the-gioi-object-detection" >1. Lời mở đầu: Bước chân vào thế giới Object Detection</a></li>
+<li><a href="#2-su-ra-doi-cua-yolov3-va-buc-tranh-object-detection" >2. Sự ra đời của YOLOv3 và Bức tranh Object Detection</a></li>
+<li><a href="#3-kien-truc-mang-darknet-53-suc-manh-tu-residual-connections" >3. Kiến trúc mạng Darknet-53: Sức mạnh từ Residual Connections</a></li>
+<li><a href="#4-du-doan-da-ti-le-multi-scale-predictions-khac-phuc-bai-toan-vat-the-nho" >4. Dự đoán đa tỉ lệ (Multi-Scale Predictions): Khắc phục bài toán vật thể nhỏ</a></li>
+<li><a href="#5-co-che-anchor-box-va-du-doan-bounding-box" >5. Cơ chế Anchor Box và Dự đoán Bounding Box</a>
+<ul>
+<li><a href="#51-tim-9-anchor-boxes-bang-k-means" >5.1 Tìm 9 Anchor Boxes bằng K-Means</a></li>
+<li><a href="#52-cong-thuc-chuyen-doi-toa-do-bounding-box" >5.2 Công thức chuyển đổi tọa độ Bounding Box</a></li>
+</ul>
+</li>
+<li><a href="#6-ban-chat-toan-hoc-ham-mat-mat-loss-function" >6. Bản chất toán học: Hàm mất mát (Loss Function)</a>
+<ul>
+<li><a href="#61-loss-toa-do-bounding-box" >6.1 Loss tọa độ Bounding Box</a></li>
+<li><a href="#62-loss-do-tin-cay-vat-the-objectness-loss" >6.2 Loss độ tin cậy vật thể (Objectness Loss)</a></li>
+<li><a href="#63-loss-phan-loai-lop-classification-loss" >6.3 Loss phân loại lớp (Classification Loss)</a></li>
+<li><a href="#64-tong-hop-ham-mat-mat" >6.4 Tổng hợp hàm mất mát</a></li>
+</ul>
+</li>
+<li><a href="#7-nhin-nhan-ca-nhan-uu-nhuoc-diem-va-gia-tri-hoc-tap" >7. Nhìn nhận cá nhân: Ưu nhược điểm và Giá trị học tập</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a id="1-loi-mo-dau-buoc-chan-vao-the-gioi-object-detection"></a></p>
+<h3 id="1-lời-mở-đầu-bước-chân-vào-thế-giới-object-detection">1. Lời mở đầu: Bước chân vào thế giới Object Detection</h3>
+<p>Chào mọi người! Sau hai bài viết trước về những thuật toán học máy cơ bản như <a href="/articles/linear_regression" >Linear Regression</a> và <a href="/articles/k-nearest_neighbors" >K-Nearest Neighbors</a>, hôm nay mình muốn cùng các bạn bước sang một chương mới thú vị hơn rất nhiều: <strong>Deep Learning trong Thị giác máy tính (Computer Vision)</strong>.</p>
+<p>Là một sinh viên đam mê công nghệ và yêu thích trí tuệ nhân tạo, khi bắt đầu tìm hiểu về bài toán phát hiện vật thể (Object Detection), câu hỏi đầu tiên khiến mình tò mò là: <em>Làm thế nào mà máy tính vừa nhận biết được đồ vật trong ảnh, vừa vẽ được khung bao chính xác theo thời gian thực (real-time)?</em></p>
+<p>Cái tên đầu tiên dẫn lối mình vào thế giới này chính là dòng họ <strong>YOLO (You Only Look Once)</strong>, và đặc biệt là phiên bản <strong>YOLOv3</strong>.</p>
+<p>Ở thời điểm hiện tại, cộng đồng đã phát triển thêm rất nhiều phiên bản mới như YOLOv8 hay YOLOv10 và mới nhất là YOLOv27 với vô số kỹ thuật tối ưu hóa hiện đại. Thế nhưng, với mình, YOLOv3 vẫn là mô hình mang tính biểu tượng và đáng học nhất đối với một sinh viên:</p>
+<ul>
+<li>Nó không quá trừu tượng để làm nản lòng người mới bắt đầu.</li>
+<li>Nó hội tụ đầy đủ những phát kiến kinh điển nhất: mạng xương sống Darknet-53, cơ chế kim tự tháp đa tỉ lệ (FPN-like), phân cụm Anchor box bằng K-Means, và cách chuyển đổi từ Softmax sang Binary Cross-Entropy để gán đa nhãn.</li>
+</ul>
+<p>Bài viết này là cuốn sổ tay ghi chép lại hành trình mình tìm hiểu và bóc tách YOLOv3 — từ lý thuyết, bản chất toán học, cho đến những tư duy kiến trúc thực tế. Hy vọng những chia sẻ này sẽ là tài liệu tham khảo hữu ích cho các bạn sinh viên cũng đang trên con đường khám phá AI như mình!</p>
+<hr>
+<p><a id="2-su-ra-doi-cua-yolov3-va-buc-tranh-object-detection"></a></p>
+<h3 id="2-sự-ra-đời-của-yolov3-và-bức-tranh-object-detection">2. Sự ra đời của YOLOv3 và Bức tranh Object Detection</h3>
+<p>Vào tháng 04 năm 2018, <strong>Joseph Redmon</strong> và <strong>Ali Farhadi</strong> (Đại học Washington) công bố bài báo khoa học nổi tiếng mang tên: <em>&ldquo;YOLOv3: An Incremental Improvement&rdquo;</em>. Tác giả đặt tiêu đề một cách rất hóm hỉnh và khiêm tốn rằng đây chỉ là một &ldquo;báo cáo kỹ thuật nhỏ&rdquo;, nhưng thực chất nó đã tạo nên một cơn địa chấn trong cộng đồng Computer Vision.</p>
+<p>Để hiểu được giá trị của YOLOv3, ta cần nhìn lại sự tiến hóa của dòng họ YOLO:</p>
+<table>
+	<thead>
+			<tr>
+					<th style="text-align: left">Phiên bản</th>
+					<th style="text-align: left">Năm</th>
+					<th style="text-align: left">Đặc điểm then chốt</th>
+					<th style="text-align: left">Điểm hạn chế lớn nhất</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: left"><strong>YOLOv1</strong></td>
+					<td style="text-align: left">2015</td>
+					<td style="text-align: left">Khởi xướng Single-stage: Chia lưới $7 \times 7$, dự đoán 2 hộp mỗi ô.</td>
+					<td style="text-align: left">Định vị kém (Localization error), cực kỳ tệ với vật thể nhỏ hoặc vật thể đứng sát nhau theo bầy đàn.</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>YOLOv2 (YOLO9000)</strong></td>
+					<td style="text-align: left">2016</td>
+					<td style="text-align: left">Đưa vào <strong>Anchor Boxes</strong>, Batch Normalization, Darknet-19, cơ chế Passthrough layer.</td>
+					<td style="text-align: left">Vẫn gặp khó khăn lớn khi kích thước vật thể chênh lệch quá nhiều; chỉ dự đoán ở 1 scale cuối cùng ($13 \times 13$).</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>YOLOv3</strong></td>
+					<td style="text-align: left">2018</td>
+					<td style="text-align: left"><strong>Darknet-53 (Residual Blocks)</strong>, <strong>Dự đoán tại 3 tỉ lệ khác nhau</strong>, <strong>Multi-label classification</strong>.</td>
+					<td style="text-align: left">Tốc độ chậm hơn YOLOv2 một chút do mạng sâu hơn, nhưng độ chính xác (mAP) tăng vọt ngang hàng với RetinaNet và Faster R-CNN.</td>
+			</tr>
+	</tbody>
+</table>
+<p>YOLOv3 ra đời đã giải quyết triệt để bài toán: <strong>Làm sao để một mô hình vừa bắt được vật thể to, vừa không bỏ sót vật thể li ti, mà vẫn duy trì tốc độ trên 30 FPS trên các GPU thương mại?</strong></p>
+<hr>
+<p><a id="3-kien-truc-mang-darknet-53-suc-manh-tu-residual-connections"></a></p>
+<h3 id="3-kiến-trúc-mạng-darknet-53-sức-mạnh-từ-residual-connections">3. Kiến trúc mạng Darknet-53: Sức mạnh từ Residual Connections</h3>
+<p>Trái tim trích xuất đặc trưng của YOLOv3 là mạng <strong>Darknet-53</strong> (bao gồm 53 lớp tích chập Convolutional Layers). Đây là sự kết hợp tài tình giữa triết lý thiết kế của Darknet-19 (từ YOLOv2) và cơ chế kết nối phần dư <strong>Residual Blocks</strong> (lấy cảm hứng từ ResNet).</p>
+<p><img src="/images/yolov3-architecture.svg" alt="Kiến trúc tổng thể YOLOv3" title="Kiến trúc tổng thể YOLOv3 và Darknet-53"></p>
+<p><em>Hình 1: Sơ đồ toàn cảnh kiến trúc YOLOv3 — Thể hiện chi tiết kích thước Kernel (K), bước nhảy Stride (S), viền Padding (P), số bộ lọc (Filters) và dòng chảy dữ liệu đến 3 đầu ra dự đoán.</em></p>
+<blockquote>
+<p>💡 <strong>Quy tắc tính kích thước Feature Map trong sơ đồ:</strong>
+Kích thước ma trận đầu ra được tính theo công thức:
+</p>
+$$ O = \left\lfloor \frac{W - K + 2P}{S} \right\rfloor + 1 $$<ul>
+<li><strong>Giữ nguyên kích thước ($S = 1, P = 1, K = 3$):</strong> $O = \frac{416 - 3 + 2}{1} + 1 = 416$.</li>
+<li><strong>Giảm một nửa / Downsampling ($S = 2, P = 1, K = 3$):</strong> $O = \lfloor \frac{416 - 3 + 2}{2} \rfloor + 1 = 208$.</li>
+<li><strong>Số kênh (Channels):</strong> Luôn bằng đúng <strong>số lượng bộ lọc (Filters / Number of Kernels)</strong> của lớp đó (ví dụ: 32, 64, 128, 256, 512, 1024).</li>
+</ul>
+</blockquote>
+<h4 id="bảng-thông-số-chi-tiết-kiến-trúc-darknet-53-table-1-từ-paper-gốc">Bảng thông số chi tiết kiến trúc Darknet-53 (Table 1 từ Paper gốc):</h4>
+<table>
+	<thead>
+			<tr>
+					<th style="text-align: left">Lớp (Type)</th>
+					<th style="text-align: center">Số bộ lọc (Filters)</th>
+					<th style="text-align: center">Kích thước (Size)</th>
+					<th style="text-align: center">Kích thước đầu ra (Output)</th>
+					<th style="text-align: center">Số lần lặp (Repeat)</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: left"><strong>Convolutional</strong></td>
+					<td style="text-align: center">32</td>
+					<td style="text-align: center">$3 \times 3$</td>
+					<td style="text-align: center">$416 \times 416$</td>
+					<td style="text-align: center">-</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Convolutional</strong></td>
+					<td style="text-align: center">64</td>
+					<td style="text-align: center">$3 \times 3$ / stride 2</td>
+					<td style="text-align: center">$208 \times 208$</td>
+					<td style="text-align: center">-</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Convolutional</td>
+					<td style="text-align: center">32</td>
+					<td style="text-align: center">$1 \times 1$</td>
+					<td style="text-align: center"></td>
+					<td style="text-align: center"></td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Convolutional</td>
+					<td style="text-align: center">64</td>
+					<td style="text-align: center">$3 \times 3$</td>
+					<td style="text-align: center"></td>
+					<td style="text-align: center"></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Residual Block</strong></td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">$208 \times 208$</td>
+					<td style="text-align: center"><strong>$1\times$</strong></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Convolutional</strong></td>
+					<td style="text-align: center">128</td>
+					<td style="text-align: center">$3 \times 3$ / stride 2</td>
+					<td style="text-align: center">$104 \times 104$</td>
+					<td style="text-align: center">-</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Convolutional</td>
+					<td style="text-align: center">64</td>
+					<td style="text-align: center">$1 \times 1$</td>
+					<td style="text-align: center"></td>
+					<td style="text-align: center"></td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Convolutional</td>
+					<td style="text-align: center">128</td>
+					<td style="text-align: center">$3 \times 3$</td>
+					<td style="text-align: center"></td>
+					<td style="text-align: center"></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Residual Block</strong></td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">$104 \times 104$</td>
+					<td style="text-align: center"><strong>$2\times$</strong></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Convolutional</strong></td>
+					<td style="text-align: center">256</td>
+					<td style="text-align: center">$3 \times 3$ / stride 2</td>
+					<td style="text-align: center">$52 \times 52$</td>
+					<td style="text-align: center">-</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Convolutional</td>
+					<td style="text-align: center">128</td>
+					<td style="text-align: center">$1 \times 1$</td>
+					<td style="text-align: center"></td>
+					<td style="text-align: center"></td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Convolutional</td>
+					<td style="text-align: center">256</td>
+					<td style="text-align: center">$3 \times 3$</td>
+					<td style="text-align: center"></td>
+					<td style="text-align: center"></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Residual Block</strong></td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">$52 \times 52$</td>
+					<td style="text-align: center"><strong>$8\times$</strong> <em>(Nối nhánh Scale 3)</em></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Convolutional</strong></td>
+					<td style="text-align: center">512</td>
+					<td style="text-align: center">$3 \times 3$ / stride 2</td>
+					<td style="text-align: center">$26 \times 26$</td>
+					<td style="text-align: center">-</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Convolutional</td>
+					<td style="text-align: center">256</td>
+					<td style="text-align: center">$1 \times 1$</td>
+					<td style="text-align: center"></td>
+					<td style="text-align: center"></td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Convolutional</td>
+					<td style="text-align: center">512</td>
+					<td style="text-align: center">$3 \times 3$</td>
+					<td style="text-align: center"></td>
+					<td style="text-align: center"></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Residual Block</strong></td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">$26 \times 26$</td>
+					<td style="text-align: center"><strong>$8\times$</strong> <em>(Nối nhánh Scale 2)</em></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Convolutional</strong></td>
+					<td style="text-align: center">1024</td>
+					<td style="text-align: center">$3 \times 3$ / stride 2</td>
+					<td style="text-align: center">$13 \times 13$</td>
+					<td style="text-align: center">-</td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Convolutional</td>
+					<td style="text-align: center">512</td>
+					<td style="text-align: center">$1 \times 1$</td>
+					<td style="text-align: center"></td>
+					<td style="text-align: center"></td>
+			</tr>
+			<tr>
+					<td style="text-align: left">Convolutional</td>
+					<td style="text-align: center">1024</td>
+					<td style="text-align: center">$3 \times 3$</td>
+					<td style="text-align: center"></td>
+					<td style="text-align: center"></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><strong>Residual Block</strong></td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">-</td>
+					<td style="text-align: center">$13 \times 13$</td>
+					<td style="text-align: center"><strong>$4\times$</strong> <em>(Nối nhánh Scale 1)</em></td>
+			</tr>
+	</tbody>
+</table>
+<h4 id="các-đặc-điểm-kiến-trúc-đáng-chú-ý-của-darknet-53">Các đặc điểm kiến trúc đáng chú ý của Darknet-53:</h4>
+<ol>
+<li><strong>Không sử dụng Pooling Layers:</strong> Darknet-53 loại bỏ hoàn toàn các lớp Max-Pooling. Việc giảm kích thước không gian (Downsampling) được thực hiện hoàn toàn bởi các lớp <strong>Convolution với Stride = 2</strong>. Điều này giúp mạng tự học cách nén thông tin không gian thay vì vứt bỏ pixel một cách cơ học.</li>
+<li><strong>Residual Connections (Skip Connections):</strong> Mỗi Residual block bao gồm một lớp tích chập $1 \times 1$ (để nén số kênh), theo sau bởi một lớp $3 \times 3$ (để trích xuất đặc trưng), và cộng trực tiếp đầu vào ban đầu vào đầu ra:
+
+$$ y = \mathcal{F}(x, \{W_i\}) + x $$
+Cơ chế này giải quyết triệt để hiện tượng suy biến gradient (Vanishing Gradient) khi mạng lên tới hàng chục lớp.</li>
+<li><strong>Hiệu năng vượt trội:</strong> Trong bài báo gốc, Joseph Redmon chứng minh Darknet-53 có độ chính xác tương đương <strong>ResNet-101</strong> nhưng tốc độ xử lý <strong>nhanh gấp 1.5 lần</strong>, và tương đương <strong>ResNet-152</strong> nhưng <strong>nhanh gấp 2 lần</strong> trên cùng phần cứng.</li>
+</ol>
+<hr>
+<p><a id="4-du-doan-da-ti-le-multi-scale-predictions-khac-phuc-bai-toan-vat-the-nho"></a></p>
+<h3 id="4-dự-đoán-đa-tỉ-lệ-multi-scale-predictions-khắc-phục-bài-toán-vật-thể-nhỏ">4. Dự đoán đa tỉ lệ (Multi-Scale Predictions): Khắc phục bài toán vật thể nhỏ</h3>
+<p>Điểm yếu chí mạng của YOLOv1 và YOLOv2 là chỉ dự đoán tại một lớp đặc trưng duy nhất ở cuối mạng ($7 \times 7$ hoặc $13 \times 13$). Khi một ảnh $416 \times 416$ bị nén xuống $13 \times 13$ (giảm $32$ lần), một vật thể nhỏ có kích thước $16 \times 16$ pixel sẽ bị co lại chưa đầy nửa pixel trên feature map, dẫn đến việc mất hoàn toàn dấu vết.</p>
+<p>YOLOv3 mượn ý tưởng từ mạng kim tự tháp đặc trưng (<strong>Feature Pyramid Networks - FPN</strong>) để dự đoán độc lập tại <strong>3 tỉ lệ khác nhau</strong>:</p>
+<p><img src="/images/yolov3-fpn-multiscale.svg" alt="Cơ chế Kim tự tháp đa tỉ lệ trong YOLOv3" title="Cơ chế Feature Pyramid Network (FPN) và dự đoán đa tỉ lệ trong YOLOv3"></p>
+<p><em>Hình 2: Sơ đồ chi tiết cơ chế FPN trong YOLOv3 — Kết hợp đặc trưng sâu từ Darknet-53 với các tầng nông thông qua Upsample 2x và Concatenate để dự đoán tại 3 tỉ lệ: Layer 82 ($13\times13$), Layer 94 ($26\times26$) và Layer 106 ($52\times52$).</em></p>
+<ol>
+<li><strong>Scale 1 ($13 \times 13$, Stride 32):</strong> Feature map nằm sâu nhất, trường tiếp nhận (Receptive Field) lớn nhất, chứa nhiều thông tin ngữ nghĩa trừu tượng cao $\rightarrow$ Chuyên trị các <strong>vật thể lớn</strong> (xe tải, xe bus, người đứng gần).</li>
+<li><strong>Scale 2 ($26 \times 26$, Stride 16):</strong> Lấy feature map từ Scale 1, đưa qua tích chập và phóng to kích thước (Upsampling $2\times$), sau đó ghép kênh (Concatenate) với feature map tầng tương ứng từ Darknet-53 $\rightarrow$ Chuyên trị các <strong>vật thể kích thước trung bình</strong> (xe hơi, bàn ghế).</li>
+<li><strong>Scale 3 ($52 \times 52$, Stride 8):</strong> Tiếp tục Upsampling $2\times$ và nối tiếp với tầng nông hơn của Darknet-53 $\rightarrow$ Giữ được độ phân giải không gian chi tiết $\rightarrow$ Bắt chính xác các <strong>vật thể nhỏ</strong> (biển báo xa, điện thoại, người đi bộ nhỏ).</li>
+</ol>
+<h4 id="kích-thước-tensor-đầu-ra-output-tensor">Kích thước Tensor đầu ra (Output Tensor):</h4>
+<p>Tại mỗi ô trong lưới $S \times S$, mô hình sử dụng <strong>3 Anchor Boxes</strong>. Với mỗi Anchor Box, mô hình cần dự đoán:</p>
+<ul>
+<li>4 tham số tọa độ hộp: $t_x, t_y, t_w, t_h$</li>
+<li>1 điểm tin cậy vật thể (Objectness Score): $P_0$</li>
+<li>$C$ xác suất phân loại lớp (Class Probabilities) — ví dụ tập COCO có $C = 80$ lớp.</li>
+</ul>
+<p>Do đó, số lượng kênh (Channels) tại mỗi scale là:
+</p>
+$$ \text{Channels} = 3 \times (4 + 1 + C) = 3 \times (4 + 1 + 80) = 255 $$<p>Tổng số lượng Bounding Box ứng viên mà YOLOv3 dự đoán cho một bức ảnh $416 \times 416$ là:
+</p>
+$$ (13 \times 13 \times 3) + (26 \times 26 \times 3) + (52 \times 52 \times 3) = 507 + 2,028 + 8,112 = 10,647 \text{ boxes} $$<p>
+<em>(So với chỉ 845 boxes ở YOLOv2, số lượng ứng viên tăng hơn 12 lần, giải thích vì sao YOLOv3 bắt vật thể nhỏ tốt hơn vượt bậc).</em></p>
+<hr>
+<p><a id="5-co-che-anchor-box-va-du-doan-bounding-box"></a></p>
+<h3 id="5-cơ-chế-anchor-box-và-dự-đoán-bounding-box">5. Cơ chế Anchor Box và Dự đoán Bounding Box</h3>
+<h4 id="51-tìm-9-anchor-boxes-bằng-k-means">5.1 Tìm 9 Anchor Boxes bằng K-Means</h4>
+<p>Thay vì chọn kích thước hộp mẫu (Anchor Boxes) một cách cảm tính, tác giả sử dụng thuật toán <strong>K-Means Clustering</strong> trên toàn bộ tập dữ liệu huấn luyện (COCO).</p>
+<p>Khoảng cách trong K-Means không dùng khoảng cách Euclid thông thường (vì hộp lớn sẽ bị phạt nặng hơn hộp nhỏ), mà dùng chỉ số IoU:
+</p>
+$$ d(\text{box}, \text{centroid}) = 1 - IoU(\text{box}, \text{centroid}) $$<p>Kết quả phân cụm tìm ra <strong>9 kích thước Anchor Box chuẩn</strong> ($width \times height$), được chia đều cho 3 scale theo thứ tự từ nhỏ đến lớn:</p>
+<ul>
+<li><strong>Scale 3 ($52 \times 52$ - Vật thể nhỏ):</strong> $(10 \times 13)$, $(16 \times 30)$, $(33 \times 23)$</li>
+<li><strong>Scale 2 ($26 \times 26$ - Vật thể vừa):</strong> $(30 \times 61)$, $(62 \times 45)$, $(59 \times 119)$</li>
+<li><strong>Scale 1 ($13 \times 13$ - Vật thể lớn):</strong> $(116 \times 90)$, $(156 \times 198)$, $(373 \times 326)$</li>
+</ul>
+<h4 id="52-công-thức-chuyển-đổi-tọa-độ-bounding-box">5.2 Công thức chuyển đổi tọa độ Bounding Box</h4>
+<p>Mô hình mạng nơ-ron không trực tiếp dự đoán tọa độ pixel tuyệt đối $(x, y, w, h)$ vì giá trị dao động quá lớn sẽ khiến gradient bất ổn định. Thay vào đó, mạng dự đoán 4 giá trị độ lệch (offsets): $t_x, t_y, t_w, t_h$.</p>
+<p>Tọa độ thực tế của Bounding Box trên ảnh được ánh xạ thông qua hệ công thức:</p>
+$$
+\begin{aligned}
+b_x &= \sigma(t_x) + c_x \\
+b_y &= \sigma(t_y) + c_y \\
+b_w &= p_w e^{t_w} \\
+b_h &= p_h e^{t_h}
+\end{aligned}
+$$<p>Trong đó:</p>
+<ul>
+<li>$(c_x, c_y)$ là tọa độ góc trên bên trái của ô lưới (grid cell) hiện tại.</li>
+<li>$\sigma(t) = \frac{1}{1 + e^{-t}}$ là hàm Sigmoid. Nhờ hàm Sigmoid, giá trị $\sigma(t_x), \sigma(t_y) \in (0, 1)$, đảm bảo <strong>tâm của Bounding Box luôn bị khóa chặt bên trong ô lưới đó</strong>, không bị trôi tự do ra ngoài.</li>
+<li>$p_w, p_h$ là chiều rộng và chiều cao định sẵn của Anchor Box.</li>
+<li>Hàm mũ $e^{t_w}, e^{t_h}$ đảm bảo chiều rộng và chiều cao dự đoán luôn luôn là một số dương.</li>
+</ul>
+<pre tabindex="0"><code>+---------------------+
+| (cx, cy)            |
+|   *-----&gt; bx        |
+|   |                 |
+|   v                 |
+|   by    [ BBox ]    |
+|                     |
++---------------------+
+</code></pre><hr>
+<p><a id="6-ban-chat-toan-hoc-ham-mat-mat-loss-function"></a></p>
+<h3 id="6-bản-chất-toán-học-hàm-mất-mát-loss-function">6. Bản chất toán học: Hàm mất mát (Loss Function)</h3>
+<p>Một cải tiến toán học then chốt trong YOLOv3 so với các phiên bản tiền nhiệm là: <strong>Loại bỏ hoàn toàn hàm Softmax cho phân loại nhãn và chuyển sang dùng Binary Cross-Entropy độc lập.</strong></p>
+<p>Lý do: Trong thực tế, các lớp không phải lúc nào cũng loại trừ lẫn nhau (mutually exclusive). Một vật thể có thể vừa mang nhãn <code>Woman</code> (Phụ nữ) vừa mang nhãn <code>Person</code> (Người). Hàm Softmax ép tổng xác suất bằng 1 nên không giải quyết được bài toán gán đa nhãn (Multi-label Classification).</p>
+<p>Hàm mất mát tổng thể $\mathcal{L}_{total}$ của YOLOv3 là tổng có trọng số của 3 thành phần:</p>
+$$
+\mathcal{L}_{total} = \mathcal{L}_{coord} + \mathcal{L}_{obj} + \mathcal{L}_{cls}
+$$<h4 id="61-loss-tọa-độ-bounding-box-">6.1 Loss tọa độ Bounding Box ($\mathcal{L}_{coord}$)</h4>
+<p>Sử dụng tổng bình phương sai số (Sum of Squared Errors - SSE):</p>
+$$
+\mathcal{L}_{coord} = \lambda_{coord} \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{I}_{ij}^{obj} \left[ (\sigma(t_x) - \hat{x})^2 + (\sigma(t_y) - \hat{y})^2 + (t_w - \hat{w})^2 + (t_h - \hat{h})^2 \right]
+$$<ul>
+<li>$\mathbb{I}_{ij}^{obj} = 1$ nếu Anchor Box thứ $j$ trong ô lưới $i$ chịu trách nhiệm dự đoán vật thể ground-truth (có IoU lớn nhất với ground-truth), ngược lại bằng $0$.</li>
+<li>$\hat{x}, \hat{y}, \hat{w}, \hat{h}$ là tọa độ ground-truth đã được chuẩn hóa ngược về không gian của mạng.</li>
+</ul>
+<h4 id="62-loss-độ-tin-cậy-vật-thể-objectness-loss---">6.2 Loss độ tin cậy vật thể (Objectness Loss - $\mathcal{L}_{obj}$)</h4>
+<p>Được tính bằng Binary Cross-Entropy (BCE) cho cả các ô chứa vật thể và các ô nền trống:</p>
+$$
+\begin{aligned}
+\mathcal{L}_{obj} = &- \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{I}_{ij}^{obj} \left[ \log(C_{ij}) \right] \\
+&- \lambda_{noobj} \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{I}_{ij}^{noobj} \left[ \log(1 - C_{ij}) \right]
+\end{aligned}
+$$<ul>
+<li>$C_{ij}$ là giá trị dự đoán của mạng qua hàm Sigmoid $\sigma(t_o)$.</li>
+<li>Với các hộp không chứa vật thể ($\mathbb{I}_{ij}^{noobj}$), hệ số phạt $\lambda_{noobj}$ thường được đặt nhỏ (ví dụ $0.5$) để tránh việc các ô nền trống áp đảo hoàn toàn tín hiệu học của các ô chứa vật thể (Class Imbalance).</li>
+</ul>
+<h4 id="63-loss-phân-loại-lớp-classification-loss---">6.3 Loss phân loại lớp (Classification Loss - $\mathcal{L}_{cls}$)</h4>
+<p>Sử dụng Binary Cross-Entropy Loss cho từng lớp riêng biệt:</p>
+$$
+\mathcal{L}_{cls} = - \sum_{i=0}^{S^2} \sum_{j=0}^{B} \mathbb{I}_{ij}^{obj} \sum_{c \in \text{classes}} \left[ \hat{p}_c \log(p_c) + (1 - \hat{p}_c) \log(1 - p_c) \right]
+$$<p>Trong đó $p_c = \sigma(t_c)$ là xác suất thuộc lớp $c$ sau khi đi qua hàm Sigmoid.</p>
+<hr>
+<p><a id="7-nhin-nhan-ca-nhan-uu-nhuoc-diem-va-gia-tri-hoc-tap"></a></p>
+<h3 id="7-nhìn-nhận-cá-nhân-ưu-nhược-điểm-và-giá-trị-học-tập">7. Nhìn nhận cá nhân: Ưu nhược điểm và Giá trị học tập</h3>
+<p>Đứng ở góc nhìn của một sinh viên đang học tập và nghiên cứu AI, việc phân tích khách quan cả điểm mạnh lẫn điểm yếu giúp ta hiểu rõ vì sao công nghệ lại liên tục phát triển.</p>
+<h4 id="1-so-sánh-tương-quan-trade-offs">1. So sánh tương quan (Trade-offs)</h4>
+<ul>
+<li><strong>So với Faster R-CNN (Two-stage):</strong> Faster R-CNN có thể nhỉnh hơn 1-2% mAP ở các bài toán đặc thù yêu cầu ranh giới bounding box cực kỳ khắt khe, nhưng tốc độ chỉ đạt khoảng 5-7 FPS. YOLOv3 đạt 30-45 FPS trên GPU, hoàn toàn đủ điều kiện chạy Real-time trên luồng camera giám sát thông thường.</li>
+<li><strong>So với SSD (Single-shot MultiBox Detector):</strong> YOLOv3 vượt trội hơn SSD ở độ chính xác trên vật thể nhỏ nhờ kiến trúc FPN kết nối nhiều tầng sâu, trong khi SSD thời kỳ đầu chỉ lấy các feature map tầng nông trực tiếp mà không có đường truyền ngược kết hợp ngữ nghĩa.</li>
+</ul>
+<h4 id="2-giới-hạn-kỹ-thuật-của-yolov3">2. Giới hạn kỹ thuật của YOLOv3</h4>
+<ul>
+<li><strong>Tính toán cồng kềnh hơn YOLOv2:</strong> Darknet-53 có số lượng tham số tương đối lớn (~62 triệu parameters), khiến việc huấn luyện từ đầu (train from scratch) trên các máy tính cá nhân của sinh viên tốn khá nhiều thời gian và tài nguyên GPU.</li>
+<li><strong>Anchor Box phụ thuộc K-Means:</strong> Kích thước anchor được cố định theo tập dữ liệu mẫu (COCO). Khi áp dụng vào các bài toán có hình dạng vật thể dị biệt (như ảnh viễn thám hay chi tiết máy móc dài hẹp), ta bắt buộc phải chạy lại thuật toán K-Means để tìm anchor mới. <em>(Đây chính là lý do mà các thế hệ sau này như YOLOv8 hay YOLOv9 đã chuyển hẳn sang cơ chế Anchor-Free).</em></li>
+</ul>
+<blockquote>
+<p><strong>Lời kết:</strong>
+Với mình, việc học YOLOv3 không chỉ đơn thuần là biết cách gọi một thư viện nhận diện vật thể, mà là cơ hội học hỏi tư duy thiết kế hệ thống của các nhà nghiên cứu đi trước: Làm thế nào để kết hợp hài hòa giữa các khối Residual, mạng kim tự tháp FPN và các hàm mất mát để tạo nên một mô hình vừa nhanh vừa chính xác. Hiểu thấu đáo YOLOv3 chính là bước đệm vững chắc nhất để mình tự tin tiếp cận bất kỳ kiến trúc thị giác máy tính hiện đại nào sau này!</p>
+</blockquote>
+<hr>
+<p>→ <a href="/articles" >Quay lại danh sách bài viết</a></p>
+
+    </article>
+  </div>
+
+</div>
+
+
+  
+<script type="text/javascript" src="/main.js" defer></script>
+
+
+</body>
+
+</html>
