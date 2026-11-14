@@ -10,13 +10,13 @@
 		
 		
 		
-			<lastBuildDate>Tue, 25 Jun 2024 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Sat, 14 Nov 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/articles/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>4. YOLOv3: Khởi Nguồn Của Kỷ Nguyên Object Detection Hiện Đại</title>
 				<link>http://localhost:1313/articles/yolov3/</link>
-				<pubDate>Tue, 25 Jun 2024 00:00:00 +0000</pubDate>
+				<pubDate>Sat, 14 Nov 2026 00:00:00 +0000</pubDate>
 				<guid>http://localhost:1313/articles/yolov3/</guid>
 				<description>&lt;h2 id=&#34;tab-of-content&#34;&gt;Tab of content&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#tab-of-content&#34; &gt;Tab of content&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#1-loi-mo-dau-buoc-chan-vao-the-gioi-object-detection&#34; &gt;1. Lời mở đầu: Bước chân vào thế giới Object Detection&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#2-su-ra-doi-cua-yolov3-va-buc-tranh-object-detection&#34; &gt;2. Sự ra đời của YOLOv3 và Bức tranh Object Detection&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#3-kien-truc-mang-darknet-53-suc-manh-tu-residual-connections&#34; &gt;3. Kiến trúc mạng Darknet-53: Sức mạnh từ Residual Connections&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#4-du-doan-da-ti-le-multi-scale-predictions-khac-phuc-bai-toan-vat-the-nho&#34; &gt;4. Dự đoán đa tỉ lệ (Multi-Scale Predictions): Khắc phục bài toán vật thể nhỏ&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#5-co-che-anchor-box-va-du-doan-bounding-box&#34; &gt;5. Cơ chế Anchor Box và Dự đoán Bounding Box&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#51-tim-9-anchor-boxes-bang-k-means&#34; &gt;5.1 Tìm 9 Anchor Boxes bằng K-Means&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#52-cong-thuc-chuyen-doi-toa-do-bounding-box&#34; &gt;5.2 Công thức chuyển đổi tọa độ Bounding Box&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#6-ban-chat-toan-hoc-ham-mat-mat-loss-function&#34; &gt;6. Bản chất toán học: Hàm mất mát (Loss Function)&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#61-loss-toa-do-bounding-box&#34; &gt;6.1 Loss tọa độ Bounding Box&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#62-loss-do-tin-cay-vat-the-objectness-loss&#34; &gt;6.2 Loss độ tin cậy vật thể (Objectness Loss)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#63-loss-phan-loai-lop-classification-loss&#34; &gt;6.3 Loss phân loại lớp (Classification Loss)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#64-tong-hop-ham-mat-mat&#34; &gt;6.4 Tổng hợp hàm mất mát&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#7-nhin-nhan-ca-nhan-uu-nhuoc-diem-va-gia-tri-hoc-tap&#34; &gt;7. Nhìn nhận cá nhân: Ưu nhược điểm và Giá trị học tập&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;a id=&#34;1-loi-mo-dau-buoc-chan-vao-the-gioi-object-detection&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
 			</item>

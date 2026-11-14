@@ -1,6 +1,6 @@
 +++
 title = '4. YOLOv3: Khởi Nguồn Của Kỷ Nguyên Object Detection Hiện Đại'
-date = 2024-06-25
+date = 2026-11-14
 draft = false
 +++
 
